@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 from PIL import Image
 
-from carepath import privacy
+from anonymisation import ocr, privacy
 
 
 class FakeAnalyzer:
@@ -27,7 +27,7 @@ def test_masks_name_preserves_test_value(monkeypatch):
     image_bytes = BytesIO()
     image.save(image_bytes, format="PNG")
     names = ["John", "Smith", "Haemoglobin", "13.5", "g/dL"]
-    monkeypatch.setattr(privacy.pytesseract, "image_to_data", lambda *args, **kwargs: {
+    monkeypatch.setattr(ocr.pytesseract, "image_to_data", lambda *args, **kwargs: {
         "text": names,
         "left": [10, 70, 10, 160, 230],
         "top": [10, 10, 60, 60, 60],

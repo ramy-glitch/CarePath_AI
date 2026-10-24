@@ -9,7 +9,7 @@ This document freezes the architecture agreed for the prototype. Clinician revie
 ## What the prototype does
 
 1. The patient uploads a blood-test document.
-2. A teammate’s extraction step reads the document and returns anonymised JSON. Identifiers are removed. Test name, value, unit, reference range, and the high/low flag are kept. The original file is not stored.
+2. The browser sends the document to this server’s anonymisation route. That route reads it in memory, removes identifiers, and returns anonymised JSON. Test name, value, unit, reference range, and the high/low flag are kept. The original file is not stored.
 3. The browser encrypts that JSON, and later the chat transcript, and keeps both locally.
 4. Each chat turn is a new request. The server does not store the patient JSON or the chat.
 5. The server retrieves relevant passages from the synthetic corpus and calls a local LLM.
@@ -27,11 +27,10 @@ flowchart TB
     ui[Chat and cited passages]
   end
 
-  subgraph redactBox [Anonymisation - teammate]
-    extract[OCR plus redaction]
-  end
-
   subgraph serverBox [Application server - nothing patient-related is stored]
+    subgraph redactBox [Anonymisation route]
+      extract[OCR plus redaction in memory]
+    end
     retrieve[Hybrid retrieval]
     corpus[("Synthetic corpus")]
     llm[Ollama qwen3 1.7B]
@@ -44,7 +43,7 @@ flowchart TB
   end
 
   upload --> extract
-  extract -->|"anonymised JSON only"| files
+  extract -->|"anonymised JSON, then discard the upload"| files
   key --- files
   files -->|"fresh request each turn"| retrieve
   retrieve --> corpus
@@ -65,32 +64,33 @@ The LLM is [Qwen3 1.7B](https://ollama.com/library/qwen3) served with the local 
 sequenceDiagram
   participant Patient
   participant Browser
-  participant Redaction as Anonymisation step
-  participant Server
+  participant Anon as Server anonymisation route
+  participant Chat as Server chat route
   participant Corpus as Synthetic corpus
   participant Ollama as Ollama qwen3 1.7B
 
   Patient->>Browser: Upload blood-test document
-  Browser->>Redaction: Original document
-  Redaction-->>Browser: Anonymised lab JSON
+  Browser->>Anon: Original document
+  Anon-->>Browser: Anonymised lab JSON
+  Note over Anon: Upload stays in memory and is discarded.
   Note over Browser: Encrypt and store. Discard the original file.
 
   Patient->>Browser: Ask about the result
-  Browser->>Server: User prompt, anonymised lab JSON, chat so far
-  Server->>Corpus: Hybrid search
-  Corpus-->>Server: Relevant passages, or none
+  Browser->>Chat: User prompt, anonymised lab JSON, chat so far
+  Chat->>Corpus: Hybrid search
+  Corpus-->>Chat: Relevant passages, or none
   alt Passages are strong enough
-    Server->>Ollama: Prompt, lab JSON, passages, system prompt
-    Ollama-->>Server: Explanation, or marked not covered
+    Chat->>Ollama: Prompt, lab JSON, passages, system prompt
+    Ollama-->>Chat: Explanation, or marked not covered
   end
   alt Covered
-    Server-->>Browser: Explanation and passages
+    Chat-->>Browser: Explanation and passages
     Browser-->>Patient: Show both, then delete the passage file
   else Not covered
-    Server-->>Browser: Fixed GP or NHS 111 message
+    Chat-->>Browser: Fixed GP or NHS 111 message
     Browser-->>Patient: Show that message only
   end
-  Note over Server: Request is handled in memory and discarded.
+  Note over Chat: Request is handled in memory and discarded.
 ```
 
 The chat is stored as encrypted JSON in the browser. Sending it again on the next turn is what gives the model memory. The server does not keep a session.
@@ -159,9 +159,11 @@ Other storage rules:
 
 ## Anonymisation
 
-Redaction means removing anything that identifies the person and keeping the lab numbers.
+Redaction means removing anything that identifies the person and keeping the lab numbers. It runs on this application server, as its own route, separate from chat and from Ollama. The route returns the anonymised result to the browser and stores nothing.
 
-Removed before anything is stored or sent:
+The browser sends the original document only to that route. The route holds it in memory long enough to read it and mask identifiers, then discards the upload when the response is sent. The chat route never receives the original document. Ollama receives the anonymised JSON only.
+
+Removed before the result is returned:
 
 - patient name, address, phone, email
 - NHS number, hospital number, date of birth
@@ -172,16 +174,11 @@ Kept, because the explainer cannot work without them:
 
 - test name, value, unit, reference range, and the high or low flag
 
-The original scan or PDF is discarded after extraction. Only the anonymised JSON is encrypted.
+The browser encrypts that JSON and drops its copy of the original file. The server does not write the image, the raw OCR text, or the JSON to disk or to logs.
 
-This step is owned by a teammate (OCR, Microsoft Presidio, or another tool they choose). The constraint from this architecture:
+This step is owned by a teammate (OCR, Microsoft Presidio, or another tool they choose). The in-memory implementation for synthetic images is `server/anonymisation/`: `ocr.py` reads the image, `redact_text.py` masks identifiers in the text, `redact_image.py` covers those words on the image, and `privacy.py` returns the result. `server/api/anonymise_route.py` is the HTTP entry for that result. Retrieval and the LLM do not import the upload. Sample images and the privacy tests live in `tests/`.
 
-- Anonymisation stays off this application server.
-- The Ollama request receives anonymised JSON only. It never receives the original document.
-- The redaction step does not log or save the file.
-- If a company API is used, its terms have to be checked first, including retention, training on customer data, and logging, before a real report is sent.
-
-The report still has to be seen by whatever performs redaction. It must not enter the model, the chat logs, or disk.
+If that step later calls a company OCR or redaction API, check its terms for retention, training, and logging before a real report is sent.
 
 ## Retrieval corpus
 
@@ -226,27 +223,29 @@ flowchart LR
   end
 
   subgraph transient [Sent, used, not stored]
-    request[One request in memory]
+    uploadMem[Original document in server memory]
+    request[One chat request in memory]
     answer[Explanation]
   end
 
   subgraph neverStore [Not kept]
-    original[Original PDF or photo]
+    originalFile[Original PDF or photo]
     passages[Retrieved passages file]
     serverCopy[Server copy of the patient]
   end
 
+  uploadMem -->|"anonymised JSON returned"| lab
+  uploadMem -.->|"bytes dropped when the response is sent"| originalFile
   lab --> request
   chat --> request
   request --> answer
   answer --> chat
-  original -.->|"discarded after anonymisation"| neverStore
   passages -.->|"shown, then deleted"| neverStore
 ```
 
 ## Folder structure
 
-The repository is split along the same boundaries as the architecture. The browser, the application server, anonymisation, the corpus, and offline evaluation do not share code. JSON shapes that cross those boundaries live in `shared/contracts/`. Files are empty placeholders.
+The repository is split along the same boundaries as the architecture. The browser, the two server routes, the corpus, and offline evaluation do not share code. Anonymisation is on this server and stays in its own package. JSON shapes that cross those boundaries live in `shared/contracts/`. Chat, retrieval, and browser files are still empty. In-memory redaction for synthetic images lives in `server/anonymisation/`.
 
 ```
 client/                  browser only
@@ -254,7 +253,7 @@ client/                  browser only
   src/main.js
   src/styles/app.css
   src/upload/            choose the document, then drop the original
-  src/redaction-client/  send it for anonymisation, accept lab JSON back
+  src/redaction-client/  post the document to this server, accept lab JSON back
   src/storage/           AES-GCM, IndexedDB, session key, lastUsed, purge, tab lock, delete
   src/chat/              encrypted transcript and sending a turn
   src/passages/          show cited passages, then delete that file
@@ -264,20 +263,22 @@ client/                  browser only
 
 server/                  stateless application server
   app.py
-  api/                   HTTP entry only
+  api/                   two HTTP entries, kept apart
+    anonymise_route.py   document in, anonymised JSON out, nothing stored
+    chat_route.py        anonymised JSON in, explanation out, nothing stored
+  anonymisation/         teammate’s OCR and redaction, in memory
+    ocr.py               read the image and return words plus boxes
+    redact_text.py       mask identifiers in the OCR text
+    redact_image.py      cover those words on a copy of the image
+    privacy.py           compose the three steps and return the result
+    to_lab_json.py       still empty
+    discard_original.py  still empty
   retrieval/             corpus load, keyword, embedding, hybrid, cutoff
   llm/                   prompt assembly and Ollama
   gate/                  covered or not, and the fixed message
   passages/              citation JSON returned to the browser
-  privacy/               request handled in memory, then discarded
+  privacy/               both requests handled in memory, then discarded
   config/
-
-anonymisation/           teammate’s step, outside the app server
-  ocr.py
-  redact_text.py
-  redact_image.py
-  to_lab_json.py
-  discard_original.py
 
 corpus/passages.json     synthetic retrieval corpus
 
@@ -287,19 +288,23 @@ evaluation/              offline RAGAS only
   tune_cutoff.py
   golden/golden_set.json
 
-shared/contracts/        JSON shapes shared by browser, server, and anonymisation
+shared/contracts/        JSON shapes shared by the browser and the server
   lab_result.schema.json
   passage.schema.json
   chat_turn_request.schema.json
   chat_turn_response.schema.json
   coverage.schema.json
+
+tests/                   anonymisation checks only, for now
+  test_privacy.py
+  fixtures/synthetic/    sample blood-test image and a redacted copy
 ```
 
 `client/` is plain browser JavaScript. It owns upload, encryption, the chat transcript, and the notice. It never keeps the original document or the passage file.
 
-`server/` is Python. `api/` receives a turn and does nothing else. `retrieval/` searches the corpus. `llm/` builds the prompt and calls Ollama with thinking mode off. `gate/` applies the retrieval cutoff and the coverage check. `passages/` builds the citation JSON the browser shows and then deletes. `privacy/` is the boundary that discards the request after the response is sent. There is no database package.
+`server/` is Python. `api/anonymise_route.py` accepts the original document and returns anonymised JSON. `api/chat_route.py` accepts only that JSON. Neither route writes a patient record. `anonymisation/` is the teammate’s package, and it is the only server code that sees the upload. `ocr.py`, `redact_text.py`, and `redact_image.py` each do one part of that work. `privacy.py` composes them. `retrieval/` searches the corpus. `llm/` builds the prompt and calls Ollama with thinking mode off. `gate/` applies the retrieval cutoff and the coverage check. `passages/` builds the citation JSON the browser shows and then deletes. `privacy/` is the boundary that discards both requests after the response is sent. There is no database package.
 
-`anonymisation/` is a separate Python package for the teammate. OCR, text redaction, and image redaction stay here so the original report never enters `server/`.
+`tests/` holds the anonymisation checks and the synthetic images those checks use.
 
 `corpus/` holds the handmade passage file the retriever reads.
 
@@ -318,4 +323,4 @@ shared/contracts/        JSON shapes shared by browser, server, and anonymisatio
 
 ## Prototype status
 
-The folders and files in [Folder structure](#folder-structure) exist and are empty. The behaviour in this document is not implemented yet. Anonymisation remains a teammate’s workstream under the constraint above.
+Chat, retrieval, browser storage, and the anonymisation HTTP route are still empty. `server/anonymisation/` redacts a synthetic image in memory and returns the result without saving it. Anonymisation remains a teammate’s workstream on this server, under the rule that the upload is returned to the browser and not stored.
