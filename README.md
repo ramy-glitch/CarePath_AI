@@ -10,11 +10,12 @@ This document freezes the architecture agreed for the prototype. Clinician revie
 
 1. The patient uploads a blood-test document.
 2. The browser sends the document to this server’s anonymisation route. That route reads it in memory, removes identifiers, and returns anonymised JSON. Test name, value, unit, reference range, and the high/low flag are kept. The original file is not stored.
-3. The browser encrypts that JSON, and later the chat transcript, and keeps both locally.
-4. Each chat turn is a new request. The server does not store the patient JSON or the chat.
-5. The server retrieves relevant passages from the synthetic corpus and calls a local LLM.
-6. The patient sees a short explanation and the passages that supported it. Passage URLs are placeholders for real NHS or NICE links later. The passage file is deleted after it is shown.
-7. If the result is not covered, the patient sees one fixed message: contact their GP or NHS 111. The model does not choose between a GP visit and emergency care.
+3. The browser shows that anonymised result as a preview. The patient ticks a checkbox to confirm they have looked at it. OCR can misread a value, and Presidio can miss an identifier, so opening the site is not this confirmation. The checkbox stays in the browser. It is not sent to the server, and it creates no server state.
+4. After that box is ticked, the browser encrypts the JSON, and later the chat transcript, and keeps both locally. Until then, the explanation does not start.
+5. Each chat turn is a new request. The server does not store the patient JSON or the chat.
+6. The server retrieves relevant passages from the synthetic corpus and calls a local LLM.
+7. The patient sees a short explanation and the passages that supported it. Passage URLs are placeholders for real NHS or NICE links later. The passage file is deleted after it is shown.
+8. If the result is not covered, the patient sees one fixed message: contact their GP or NHS 111. The model does not choose between a GP visit and emergency care.
 
 ## Architecture
 
@@ -22,6 +23,7 @@ This document freezes the architecture agreed for the prototype. Clinician revie
 flowchart TB
   subgraph browserBox [Browser]
     upload[Upload document]
+    preview[Preview and confirmation checkbox]
     files[("Encrypted lab JSON and chat")]
     key[AES-GCM key for this tab]
     ui[Chat and cited passages]
@@ -43,7 +45,8 @@ flowchart TB
   end
 
   upload --> extract
-  extract -->|"anonymised JSON, then discard the upload"| files
+  extract -->|"anonymised JSON, then discard the upload"| preview
+  preview -->|"checkbox ticked in the browser"| files
   key --- files
   files -->|"fresh request each turn"| retrieve
   retrieve --> corpus
@@ -73,7 +76,9 @@ sequenceDiagram
   Browser->>Anon: Original document
   Anon-->>Browser: Anonymised lab JSON
   Note over Anon: Upload stays in memory and is discarded.
-  Note over Browser: Encrypt and store. Discard the original file.
+  Browser-->>Patient: Preview of the anonymised result
+  Patient->>Browser: Tick the confirmation checkbox
+  Note over Browser: The checkbox is not sent anywhere. Encrypt and store only after it is ticked. Discard the original file.
 
   Patient->>Browser: Ask about the result
   Browser->>Chat: User prompt, anonymised lab JSON, chat so far
@@ -174,11 +179,19 @@ Kept, because the explainer cannot work without them:
 
 - test name, value, unit, reference range, and the high or low flag
 
-The browser encrypts that JSON and drops its copy of the original file. The server does not write the image, the raw OCR text, or the JSON to disk or to logs.
+The browser drops its copy of the original file when the anonymised JSON comes back. The server does not write the image, the raw OCR text, or the JSON to disk or to logs.
 
 This step is owned by a teammate (OCR, Microsoft Presidio, or another tool they choose). The in-memory implementation for synthetic images is `server/anonymisation/`: `ocr.py` reads the image, `redact_text.py` masks identifiers in the text, `redact_image.py` covers those words on the image, and `privacy.py` returns the result. `server/api/anonymise_route.py` is the HTTP entry for that result. Retrieval and the LLM do not import the upload. Sample images and the privacy tests live in `tests/`.
 
 If that step later calls a company OCR or redaction API, check its terms for retention, training, and logging before a real report is sent.
+
+### Confirming the preview
+
+OCR can misread a laboratory value, and Presidio can miss an identifier. Agreeing to use the platform is not the same as checking that this result was read and anonymised properly.
+
+Before any explanation, the browser shows the anonymised results and a confirmation checkbox. The patient ticks it only after looking at the preview. The chat route is not called until that box is ticked, and the lab JSON is encrypted only then. An unticked preview is not stored.
+
+The checkbox is entirely on the frontend. There is no approval request, no extra API call, and no server state for the decision. This keeps the check that the anonymisation worked, without a second server step.
 
 ## Retrieval corpus
 
@@ -224,6 +237,7 @@ flowchart LR
 
   subgraph transient [Sent, used, not stored]
     uploadMem[Original document in server memory]
+    preview[Anonymised preview and checkbox]
     request[One chat request in memory]
     answer[Explanation]
   end
@@ -234,7 +248,8 @@ flowchart LR
     serverCopy[Server copy of the patient]
   end
 
-  uploadMem -->|"anonymised JSON returned"| lab
+  uploadMem -->|"anonymised JSON returned"| preview
+  preview -->|"checkbox ticked, no server call"| lab
   uploadMem -.->|"bytes dropped when the response is sent"| originalFile
   lab --> request
   chat --> request
@@ -253,7 +268,7 @@ client/                  browser only
   src/main.js
   src/styles/app.css
   src/upload/            choose the document, then drop the original
-  src/redaction-client/  post the document to this server, accept lab JSON back
+  src/redaction-client/  post the document, show the preview, accept it only after the checkbox
   src/storage/           AES-GCM, IndexedDB, session key, lastUsed, purge, tab lock, delete
   src/chat/              encrypted transcript and sending a turn
   src/passages/          show cited passages, then delete that file
@@ -300,7 +315,7 @@ tests/                   anonymisation checks only, for now
   fixtures/synthetic/    sample blood-test image and a redacted copy
 ```
 
-`client/` is plain browser JavaScript. It owns upload, encryption, the chat transcript, and the notice. It never keeps the original document or the passage file.
+`client/` is plain browser JavaScript. It owns upload, the anonymised preview and confirmation checkbox, encryption, the chat transcript, and the notice. It never keeps the original document or the passage file. The checkbox never leaves the browser.
 
 `server/` is Python. `api/anonymise_route.py` accepts the original document and returns anonymised JSON. `api/chat_route.py` accepts only that JSON. Neither route writes a patient record. `anonymisation/` is the teammate’s package, and it is the only server code that sees the upload. `ocr.py`, `redact_text.py`, and `redact_image.py` each do one part of that work. `privacy.py` composes them. `retrieval/` searches the corpus. `llm/` builds the prompt and calls Ollama with thinking mode off. `gate/` applies the retrieval cutoff and the coverage check. `passages/` builds the citation JSON the browser shows and then deletes. `privacy/` is the boundary that discards both requests after the response is sent. There is no database package.
 
