@@ -244,6 +244,69 @@ flowchart LR
   passages -.->|"shown, then deleted"| neverStore
 ```
 
+## Folder structure
+
+The repository is split along the same boundaries as the architecture. The browser, the application server, anonymisation, the corpus, and offline evaluation do not share code. JSON shapes that cross those boundaries live in `shared/contracts/`. Files are empty placeholders.
+
+```
+client/                  browser only
+  index.html
+  src/main.js
+  src/styles/app.css
+  src/upload/            choose the document, then drop the original
+  src/redaction-client/  send it for anonymisation, accept lab JSON back
+  src/storage/           AES-GCM, IndexedDB, session key, lastUsed, purge, tab lock, delete
+  src/chat/              encrypted transcript and sending a turn
+  src/passages/          show cited passages, then delete that file
+  src/api/               one fresh request per turn
+  src/notice/            the storage notice
+  src/refusal/           fixed GP or NHS 111 message
+
+server/                  stateless application server
+  app.py
+  api/                   HTTP entry only
+  retrieval/             corpus load, keyword, embedding, hybrid, cutoff
+  llm/                   prompt assembly and Ollama
+  gate/                  covered or not, and the fixed message
+  passages/              citation JSON returned to the browser
+  privacy/               request handled in memory, then discarded
+  config/
+
+anonymisation/           teammate’s step, outside the app server
+  ocr.py
+  redact_text.py
+  redact_image.py
+  to_lab_json.py
+  discard_original.py
+
+corpus/passages.json     synthetic retrieval corpus
+
+evaluation/              offline RAGAS only
+  run_ragas.py
+  faithfulness.py
+  tune_cutoff.py
+  golden/golden_set.json
+
+shared/contracts/        JSON shapes shared by browser, server, and anonymisation
+  lab_result.schema.json
+  passage.schema.json
+  chat_turn_request.schema.json
+  chat_turn_response.schema.json
+  coverage.schema.json
+```
+
+`client/` is plain browser JavaScript. It owns upload, encryption, the chat transcript, and the notice. It never keeps the original document or the passage file.
+
+`server/` is Python. `api/` receives a turn and does nothing else. `retrieval/` searches the corpus. `llm/` builds the prompt and calls Ollama with thinking mode off. `gate/` applies the retrieval cutoff and the coverage check. `passages/` builds the citation JSON the browser shows and then deletes. `privacy/` is the boundary that discards the request after the response is sent. There is no database package.
+
+`anonymisation/` is a separate Python package for the teammate. OCR, text redaction, and image redaction stay here so the original report never enters `server/`.
+
+`corpus/` holds the handmade passage file the retriever reads.
+
+`evaluation/` runs RAGAS against the golden set and is where the retrieval cutoff is tuned. The live server does not import it.
+
+`shared/contracts/` is the only place the lab result, a corpus passage, a chat request, a chat response, and the coverage flag are defined. The other packages follow those shapes.
+
 ## Out of scope for now
 
 - Clinician validation of answers.
@@ -255,4 +318,4 @@ flowchart LR
 
 ## Prototype status
 
-The repository currently records this architecture. The synthetic corpus, the browser storage, the retrieval service, and the Ollama chat path are not built yet. Anonymisation is a teammate’s workstream under the constraint above.
+The folders and files in [Folder structure](#folder-structure) exist and are empty. The behaviour in this document is not implemented yet. Anonymisation remains a teammate’s workstream under the constraint above.
