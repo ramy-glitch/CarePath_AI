@@ -245,7 +245,7 @@ flowchart LR
 
 ## Folder structure
 
-The repository is split along the same boundaries as the architecture. The browser, the two server routes, the corpus, and offline evaluation do not share code. Anonymisation is on this server and stays in its own package. JSON shapes that cross those boundaries live in `shared/contracts/`. Chat, retrieval, and browser files are still empty. In-memory redaction for synthetic images lives in `server/anonymisation/`.
+The repository is split along the same boundaries as the architecture. The browser, the two server routes, the corpus, and offline evaluation do not share code. Anonymisation is on this server and stays in its own package. JSON shapes that cross those boundaries live in `shared/contracts/`. Chat, retrieval, and browser files are still empty. In-memory redaction for synthetic images lives in `server/anonymisation/`. The handmade retrieval passages live in `corpus/passages.json`.
 
 ```
 client/                  browser only
@@ -280,7 +280,7 @@ server/                  stateless application server
   privacy/               both requests handled in memory, then discarded
   config/
 
-corpus/passages.json     synthetic retrieval corpus
+corpus/passages.json     33 analytes, low / normal / high, seven panels
 
 evaluation/              offline RAGAS only
   run_ragas.py
@@ -290,7 +290,7 @@ evaluation/              offline RAGAS only
 
 shared/contracts/        JSON shapes shared by the browser and the server
   lab_result.schema.json
-  passage.schema.json
+  passage.schema.json          shape of one corpus passage
   chat_turn_request.schema.json
   chat_turn_response.schema.json
   coverage.schema.json
@@ -323,4 +323,4 @@ tests/                   anonymisation checks only, for now
 
 ## Prototype status
 
-Chat, retrieval, browser storage, and the anonymisation HTTP route are still empty. `server/anonymisation/` redacts a synthetic image in memory and returns the result without saving it. Anonymisation remains a teammate’s workstream on this server, under the rule that the upload is returned to the browser and not stored.
+Chat, retrieval, browser storage, and the anonymisation HTTP route are still empty. `corpus/passages.json` holds the handmade passages. `server/anonymisation/` redacts a synthetic image in memory and returns the result without saving it. Anonymisation remains a teammate’s workstream on this server, under the rule that the upload is returned to the browser and not stored.

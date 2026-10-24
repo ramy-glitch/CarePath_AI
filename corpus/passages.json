@@ -1,0 +1,1394 @@
+[
+  {
+    "id": "fbc-haemoglobin-low",
+    "panel": "full_blood_count",
+    "analyte": "haemoglobin",
+    "aliases": [
+      "Hb",
+      "haemoglobin",
+      "hemoglobin"
+    ],
+    "band": "low",
+    "title": "Haemoglobin below the range on your report",
+    "text": "Haemoglobin is the protein in red blood cells that carries oxygen. Your result is below the range printed on your report. A result below the usual range for that laboratory means this sample had less haemoglobin than that range. People sometimes use the word anaemia for a low result, but this number does not say what the cause is. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/haemoglobin"
+  },
+  {
+    "id": "fbc-haemoglobin-normal",
+    "panel": "full_blood_count",
+    "analyte": "haemoglobin",
+    "aliases": [
+      "Hb",
+      "haemoglobin",
+      "hemoglobin"
+    ],
+    "band": "normal",
+    "title": "Haemoglobin inside the range on your report",
+    "text": "Haemoglobin is the protein in red blood cells that carries oxygen. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects haemoglobin to be. One result inside the range does not describe the rest of your health. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/haemoglobin"
+  },
+  {
+    "id": "fbc-haemoglobin-high",
+    "panel": "full_blood_count",
+    "analyte": "haemoglobin",
+    "aliases": [
+      "Hb",
+      "haemoglobin",
+      "hemoglobin"
+    ],
+    "band": "high",
+    "title": "Haemoglobin above the range on your report",
+    "text": "Haemoglobin is the protein in red blood cells that carries oxygen. Your result is above the range printed on your report. A result above the usual range for that laboratory means this sample had more haemoglobin than that range. The number does not say why it is higher. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/haemoglobin"
+  },
+  {
+    "id": "fbc-white-cell-count-low",
+    "panel": "full_blood_count",
+    "analyte": "white_cell_count",
+    "aliases": [
+      "WBC",
+      "white cell count",
+      "white blood cell count",
+      "leukocytes",
+      "leucocytes"
+    ],
+    "band": "low",
+    "title": "White cell count below the range on your report",
+    "text": "White cells are blood cells that take part in how the body responds to infection and inflammation. Your result is below the range printed on your report. A count below the printed range means fewer white cells than that laboratory's usual range. Infections, some medicines, and other illnesses can sit behind a low count, and this passage cannot tell which applies. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/white-cell-count"
+  },
+  {
+    "id": "fbc-white-cell-count-normal",
+    "panel": "full_blood_count",
+    "analyte": "white_cell_count",
+    "aliases": [
+      "WBC",
+      "white cell count",
+      "white blood cell count",
+      "leukocytes",
+      "leucocytes"
+    ],
+    "band": "normal",
+    "title": "White cell count inside the range on your report",
+    "text": "White cells are blood cells that take part in how the body responds to infection and inflammation. Your result is inside the range printed on your report. A count inside the printed range sits where that laboratory usually expects the white cell count to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/white-cell-count"
+  },
+  {
+    "id": "fbc-white-cell-count-high",
+    "panel": "full_blood_count",
+    "analyte": "white_cell_count",
+    "aliases": [
+      "WBC",
+      "white cell count",
+      "white blood cell count",
+      "leukocytes",
+      "leucocytes"
+    ],
+    "band": "high",
+    "title": "White cell count above the range on your report",
+    "text": "White cells are blood cells that take part in how the body responds to infection and inflammation. Your result is above the range printed on your report. A count above the printed range means more white cells than that laboratory's usual range. Infection and inflammation can raise the count, and they are not the only reasons. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/white-cell-count"
+  },
+  {
+    "id": "fbc-platelets-low",
+    "panel": "full_blood_count",
+    "analyte": "platelets",
+    "aliases": [
+      "platelets",
+      "platelet count",
+      "PLT"
+    ],
+    "band": "low",
+    "title": "Platelet count below the range on your report",
+    "text": "Platelets are small cell fragments that help blood clot. Your result is below the range printed on your report. A count below the printed range means fewer platelets than that laboratory's usual range. Whether someone bruises or bleeds more easily is a judgement for a clinician, not a conclusion from this number alone. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/platelets"
+  },
+  {
+    "id": "fbc-platelets-normal",
+    "panel": "full_blood_count",
+    "analyte": "platelets",
+    "aliases": [
+      "platelets",
+      "platelet count",
+      "PLT"
+    ],
+    "band": "normal",
+    "title": "Platelet count inside the range on your report",
+    "text": "Platelets are small cell fragments that help blood clot. Your result is inside the range printed on your report. A count inside the printed range sits where that laboratory usually expects platelets to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/platelets"
+  },
+  {
+    "id": "fbc-platelets-high",
+    "panel": "full_blood_count",
+    "analyte": "platelets",
+    "aliases": [
+      "platelets",
+      "platelet count",
+      "PLT"
+    ],
+    "band": "high",
+    "title": "Platelet count above the range on your report",
+    "text": "Platelets are small cell fragments that help blood clot. Your result is above the range printed on your report. A count above the printed range means more platelets than that laboratory's usual range. Inflammation and low iron are among the reasons a count can be higher, and this passage does not pick a cause. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/platelets"
+  },
+  {
+    "id": "fbc-red-cell-count-low",
+    "panel": "full_blood_count",
+    "analyte": "red_cell_count",
+    "aliases": [
+      "RBC",
+      "red cell count",
+      "red blood cell count",
+      "erythrocytes"
+    ],
+    "band": "low",
+    "title": "Red cell count below the range on your report",
+    "text": "The red cell count is the number of red blood cells in the sample. Your result is below the range printed on your report. A count below the printed range means fewer red cells than that laboratory's usual range. It is often read next to haemoglobin rather than on its own. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/red-cell-count"
+  },
+  {
+    "id": "fbc-red-cell-count-normal",
+    "panel": "full_blood_count",
+    "analyte": "red_cell_count",
+    "aliases": [
+      "RBC",
+      "red cell count",
+      "red blood cell count",
+      "erythrocytes"
+    ],
+    "band": "normal",
+    "title": "Red cell count inside the range on your report",
+    "text": "The red cell count is the number of red blood cells in the sample. Your result is inside the range printed on your report. A count inside the printed range sits where that laboratory usually expects the red cell count to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/red-cell-count"
+  },
+  {
+    "id": "fbc-red-cell-count-high",
+    "panel": "full_blood_count",
+    "analyte": "red_cell_count",
+    "aliases": [
+      "RBC",
+      "red cell count",
+      "red blood cell count",
+      "erythrocytes"
+    ],
+    "band": "high",
+    "title": "Red cell count above the range on your report",
+    "text": "The red cell count is the number of red blood cells in the sample. Your result is above the range printed on your report. A count above the printed range means more red cells than that laboratory's usual range. Dehydration and conditions that make extra red cells are both among the reasons, and this passage does not separate them. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/red-cell-count"
+  },
+  {
+    "id": "fbc-haematocrit-low",
+    "panel": "full_blood_count",
+    "analyte": "haematocrit",
+    "aliases": [
+      "haematocrit",
+      "hematocrit",
+      "HCT",
+      "PCV",
+      "packed cell volume"
+    ],
+    "band": "low",
+    "title": "Haematocrit below the range on your report",
+    "text": "Haematocrit is the share of the blood sample that is made up of red cells. Your result is below the range printed on your report. A result below the printed range means red cells make up a smaller share of the sample than that laboratory's usual range. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/haematocrit"
+  },
+  {
+    "id": "fbc-haematocrit-normal",
+    "panel": "full_blood_count",
+    "analyte": "haematocrit",
+    "aliases": [
+      "haematocrit",
+      "hematocrit",
+      "HCT",
+      "PCV",
+      "packed cell volume"
+    ],
+    "band": "normal",
+    "title": "Haematocrit inside the range on your report",
+    "text": "Haematocrit is the share of the blood sample that is made up of red cells. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects haematocrit to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/haematocrit"
+  },
+  {
+    "id": "fbc-haematocrit-high",
+    "panel": "full_blood_count",
+    "analyte": "haematocrit",
+    "aliases": [
+      "haematocrit",
+      "hematocrit",
+      "HCT",
+      "PCV",
+      "packed cell volume"
+    ],
+    "band": "high",
+    "title": "Haematocrit above the range on your report",
+    "text": "Haematocrit is the share of the blood sample that is made up of red cells. Your result is above the range printed on your report. A result above the printed range means red cells make up a larger share of the sample than that laboratory's usual range. A more concentrated sample, for example when someone is short of fluid, can raise it. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/haematocrit"
+  },
+  {
+    "id": "fbc-mcv-low",
+    "panel": "full_blood_count",
+    "analyte": "mcv",
+    "aliases": [
+      "MCV",
+      "mean cell volume",
+      "mean corpuscular volume"
+    ],
+    "band": "low",
+    "title": "Mean cell volume below the range on your report",
+    "text": "Mean cell volume describes the average size of the red blood cells. Your result is below the range printed on your report. A result below the printed range means the red cells in this sample were smaller, on average, than that laboratory's usual range. Smaller cells are sometimes seen when iron stores are low, and sometimes for other reasons. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/mcv"
+  },
+  {
+    "id": "fbc-mcv-normal",
+    "panel": "full_blood_count",
+    "analyte": "mcv",
+    "aliases": [
+      "MCV",
+      "mean cell volume",
+      "mean corpuscular volume"
+    ],
+    "band": "normal",
+    "title": "Mean cell volume inside the range on your report",
+    "text": "Mean cell volume describes the average size of the red blood cells. Your result is inside the range printed on your report. A result inside the printed range means the average red cell size sits where that laboratory usually expects it. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/mcv"
+  },
+  {
+    "id": "fbc-mcv-high",
+    "panel": "full_blood_count",
+    "analyte": "mcv",
+    "aliases": [
+      "MCV",
+      "mean cell volume",
+      "mean corpuscular volume"
+    ],
+    "band": "high",
+    "title": "Mean cell volume above the range on your report",
+    "text": "Mean cell volume describes the average size of the red blood cells. Your result is above the range printed on your report. A result above the printed range means the red cells were larger, on average, than that laboratory's usual range. Larger cells are sometimes seen with low vitamin B12 or folate, with alcohol, or for other reasons. This passage does not choose among them. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/mcv"
+  },
+  {
+    "id": "fbc-neutrophils-low",
+    "panel": "full_blood_count",
+    "analyte": "neutrophils",
+    "aliases": [
+      "neutrophils",
+      "neutrophil count",
+      "neuts"
+    ],
+    "band": "low",
+    "title": "Neutrophil count below the range on your report",
+    "text": "Neutrophils are one type of white cell. Reports often list them when they comment on infection. Your result is below the range printed on your report. A count below the printed range means fewer neutrophils than that laboratory's usual range. Some medicines and some illnesses can lower the count. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/neutrophils"
+  },
+  {
+    "id": "fbc-neutrophils-normal",
+    "panel": "full_blood_count",
+    "analyte": "neutrophils",
+    "aliases": [
+      "neutrophils",
+      "neutrophil count",
+      "neuts"
+    ],
+    "band": "normal",
+    "title": "Neutrophil count inside the range on your report",
+    "text": "Neutrophils are one type of white cell. Reports often list them when they comment on infection. Your result is inside the range printed on your report. A count inside the printed range sits where that laboratory usually expects neutrophils to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/neutrophils"
+  },
+  {
+    "id": "fbc-neutrophils-high",
+    "panel": "full_blood_count",
+    "analyte": "neutrophils",
+    "aliases": [
+      "neutrophils",
+      "neutrophil count",
+      "neuts"
+    ],
+    "band": "high",
+    "title": "Neutrophil count above the range on your report",
+    "text": "Neutrophils are one type of white cell. Reports often list them when they comment on infection. Your result is above the range printed on your report. A count above the printed range means more neutrophils than that laboratory's usual range. Bacterial infection, inflammation, steroid medicines, and physical stress are among the reasons a count can be higher. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/neutrophils"
+  },
+  {
+    "id": "fbc-lymphocytes-low",
+    "panel": "full_blood_count",
+    "analyte": "lymphocytes",
+    "aliases": [
+      "lymphocytes",
+      "lymphocyte count",
+      "lymphs"
+    ],
+    "band": "low",
+    "title": "Lymphocyte count below the range on your report",
+    "text": "Lymphocytes are one type of white cell. They take part in the body's longer response to infection. Your result is below the range printed on your report. A count below the printed range means fewer lymphocytes than that laboratory's usual range. Some infections and some medicines are among the reasons. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/lymphocytes"
+  },
+  {
+    "id": "fbc-lymphocytes-normal",
+    "panel": "full_blood_count",
+    "analyte": "lymphocytes",
+    "aliases": [
+      "lymphocytes",
+      "lymphocyte count",
+      "lymphs"
+    ],
+    "band": "normal",
+    "title": "Lymphocyte count inside the range on your report",
+    "text": "Lymphocytes are one type of white cell. They take part in the body's longer response to infection. Your result is inside the range printed on your report. A count inside the printed range sits where that laboratory usually expects lymphocytes to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/lymphocytes"
+  },
+  {
+    "id": "fbc-lymphocytes-high",
+    "panel": "full_blood_count",
+    "analyte": "lymphocytes",
+    "aliases": [
+      "lymphocytes",
+      "lymphocyte count",
+      "lymphs"
+    ],
+    "band": "high",
+    "title": "Lymphocyte count above the range on your report",
+    "text": "Lymphocytes are one type of white cell. They take part in the body's longer response to infection. Your result is above the range printed on your report. A count above the printed range means more lymphocytes than that laboratory's usual range. Viral infections are one reason a count can be higher, and they are not the only reason. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/lymphocytes"
+  },
+  {
+    "id": "ue-sodium-low",
+    "panel": "urea_and_electrolytes",
+    "analyte": "sodium",
+    "aliases": [
+      "sodium",
+      "Na",
+      "Na+"
+    ],
+    "band": "low",
+    "title": "Sodium below the range on your report",
+    "text": "Sodium is a salt in the blood. Clinicians use it as one figure for the body's water balance. Your result is below the range printed on your report. A result below the printed range means the sodium in this sample was lower than that laboratory's usual range. Fluid balance, some medicines, and illness can move sodium down. This passage does not suggest a change to salt or water intake. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/sodium"
+  },
+  {
+    "id": "ue-sodium-normal",
+    "panel": "urea_and_electrolytes",
+    "analyte": "sodium",
+    "aliases": [
+      "sodium",
+      "Na",
+      "Na+"
+    ],
+    "band": "normal",
+    "title": "Sodium inside the range on your report",
+    "text": "Sodium is a salt in the blood. Clinicians use it as one figure for the body's water balance. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects sodium to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/sodium"
+  },
+  {
+    "id": "ue-sodium-high",
+    "panel": "urea_and_electrolytes",
+    "analyte": "sodium",
+    "aliases": [
+      "sodium",
+      "Na",
+      "Na+"
+    ],
+    "band": "high",
+    "title": "Sodium above the range on your report",
+    "text": "Sodium is a salt in the blood. Clinicians use it as one figure for the body's water balance. Your result is above the range printed on your report. A result above the printed range means the sodium in this sample was higher than that laboratory's usual range. Being short of fluid is one reason sodium can rise. This passage does not suggest a change to salt or water intake. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/sodium"
+  },
+  {
+    "id": "ue-potassium-low",
+    "panel": "urea_and_electrolytes",
+    "analyte": "potassium",
+    "aliases": [
+      "potassium",
+      "K",
+      "K+"
+    ],
+    "band": "low",
+    "title": "Potassium below the range on your report",
+    "text": "Potassium is a mineral in the blood. Muscles, including the heart muscle, use it. Your result is below the range printed on your report. A result below the printed range means the potassium in this sample was lower than that laboratory's usual range. Some medicines, vomiting, and diarrhoea are among the reasons it can be lower. A GP should see a potassium result outside the printed range. This passage does not grade how urgent that is. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/potassium"
+  },
+  {
+    "id": "ue-potassium-normal",
+    "panel": "urea_and_electrolytes",
+    "analyte": "potassium",
+    "aliases": [
+      "potassium",
+      "K",
+      "K+"
+    ],
+    "band": "normal",
+    "title": "Potassium inside the range on your report",
+    "text": "Potassium is a mineral in the blood. Muscles, including the heart muscle, use it. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects potassium to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/potassium"
+  },
+  {
+    "id": "ue-potassium-high",
+    "panel": "urea_and_electrolytes",
+    "analyte": "potassium",
+    "aliases": [
+      "potassium",
+      "K",
+      "K+"
+    ],
+    "band": "high",
+    "title": "Potassium above the range on your report",
+    "text": "Potassium is a mineral in the blood. Muscles, including the heart muscle, use it. Your result is above the range printed on your report. A result above the printed range means the potassium in this sample was higher than that laboratory's usual range. Kidney function, some medicines, and how the sample was taken can all affect the number. A GP should see a potassium result outside the printed range. This passage does not grade how urgent that is. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/potassium"
+  },
+  {
+    "id": "ue-urea-low",
+    "panel": "urea_and_electrolytes",
+    "analyte": "urea",
+    "aliases": [
+      "urea",
+      "blood urea"
+    ],
+    "band": "low",
+    "title": "Urea below the range on your report",
+    "text": "Urea is a waste chemical made in the liver and cleared by the kidneys. Your result is below the range printed on your report. A result below the printed range means the urea in this sample was lower than that laboratory's usual range. Pregnancy, a lower-protein diet, and liver problems are among the reasons. A low urea is often less remarked on than a high one. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/urea"
+  },
+  {
+    "id": "ue-urea-normal",
+    "panel": "urea_and_electrolytes",
+    "analyte": "urea",
+    "aliases": [
+      "urea",
+      "blood urea"
+    ],
+    "band": "normal",
+    "title": "Urea inside the range on your report",
+    "text": "Urea is a waste chemical made in the liver and cleared by the kidneys. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects urea to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/urea"
+  },
+  {
+    "id": "ue-urea-high",
+    "panel": "urea_and_electrolytes",
+    "analyte": "urea",
+    "aliases": [
+      "urea",
+      "blood urea"
+    ],
+    "band": "high",
+    "title": "Urea above the range on your report",
+    "text": "Urea is a waste chemical made in the liver and cleared by the kidneys. Your result is above the range printed on your report. A result above the printed range means the urea in this sample was higher than that laboratory's usual range. Being short of fluid, a high-protein meal, and slower clearance by the kidneys are among the reasons. Urea is read with creatinine, not on its own. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/urea"
+  },
+  {
+    "id": "ue-creatinine-low",
+    "panel": "urea_and_electrolytes",
+    "analyte": "creatinine",
+    "aliases": [
+      "creatinine",
+      "creat"
+    ],
+    "band": "low",
+    "title": "Creatinine below the range on your report",
+    "text": "Creatinine is a waste chemical from muscle. The kidneys clear it from the blood. Your result is below the range printed on your report. A result below the printed range means the creatinine in this sample was lower than that laboratory's usual range. People with less muscle often have a lower creatinine. A low result is not a kidney diagnosis. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/creatinine"
+  },
+  {
+    "id": "ue-creatinine-normal",
+    "panel": "urea_and_electrolytes",
+    "analyte": "creatinine",
+    "aliases": [
+      "creatinine",
+      "creat"
+    ],
+    "band": "normal",
+    "title": "Creatinine inside the range on your report",
+    "text": "Creatinine is a waste chemical from muscle. The kidneys clear it from the blood. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects creatinine to be. Kidney health is not judged from one number inside the range. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/creatinine"
+  },
+  {
+    "id": "ue-creatinine-high",
+    "panel": "urea_and_electrolytes",
+    "analyte": "creatinine",
+    "aliases": [
+      "creatinine",
+      "creat"
+    ],
+    "band": "high",
+    "title": "Creatinine above the range on your report",
+    "text": "Creatinine is a waste chemical from muscle. The kidneys clear it from the blood. Your result is above the range printed on your report. A result above the printed range means the creatinine in this sample was higher than that laboratory's usual range. Slower clearance by the kidneys, a lot of recent exercise, and a larger muscle mass can all raise it. It is read with eGFR and the other kidney tests. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/creatinine"
+  },
+  {
+    "id": "ue-egfr-low",
+    "panel": "urea_and_electrolytes",
+    "analyte": "egfr",
+    "aliases": [
+      "eGFR",
+      "EGFR",
+      "estimated GFR",
+      "estimated glomerular filtration rate"
+    ],
+    "band": "low",
+    "title": "eGFR below the range on your report",
+    "text": "eGFR is an estimate of how well the kidneys filter the blood. Laboratories calculate it from creatinine, often using age and sex as well. Your result is below the range printed on your report. A result below the printed range means this estimate of filtration is lower than that range. Clinicians look at the pattern over time rather than one result. This passage does not stage kidney disease. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/egfr"
+  },
+  {
+    "id": "ue-egfr-normal",
+    "panel": "urea_and_electrolytes",
+    "analyte": "egfr",
+    "aliases": [
+      "eGFR",
+      "EGFR",
+      "estimated GFR",
+      "estimated glomerular filtration rate"
+    ],
+    "band": "normal",
+    "title": "eGFR inside the range on your report",
+    "text": "eGFR is an estimate of how well the kidneys filter the blood. Laboratories calculate it from creatinine, often using age and sex as well. Your result is inside the range printed on your report. A result inside the printed range means this estimate sits where that laboratory usually expects it. One estimate inside the range is not a complete kidney check. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/egfr"
+  },
+  {
+    "id": "ue-egfr-high",
+    "panel": "urea_and_electrolytes",
+    "analyte": "egfr",
+    "aliases": [
+      "eGFR",
+      "EGFR",
+      "estimated GFR",
+      "estimated glomerular filtration rate"
+    ],
+    "band": "high",
+    "title": "eGFR above the range on your report",
+    "text": "eGFR is an estimate of how well the kidneys filter the blood. Laboratories calculate it from creatinine, often using age and sex as well. Your result is above the range printed on your report. A result above the printed range means this estimate is higher than the figure on the report. A higher eGFR is not a disease label. The formula the laboratory used, or a lower creatinine from less muscle, can push the estimate up. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/egfr"
+  },
+  {
+    "id": "lft-alt-low",
+    "panel": "liver_tests",
+    "analyte": "alt",
+    "aliases": [
+      "ALT",
+      "alanine aminotransferase",
+      "alanine transaminase"
+    ],
+    "band": "low",
+    "title": "ALT below the range on your report",
+    "text": "ALT is an enzyme. Much of it sits in liver cells, so it is used as one of the liver tests. Your result is below the range printed on your report. A result below the printed range is often of little note on a routine liver panel. This passage does not treat a low ALT as a diagnosis. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/alt"
+  },
+  {
+    "id": "lft-alt-normal",
+    "panel": "liver_tests",
+    "analyte": "alt",
+    "aliases": [
+      "ALT",
+      "alanine aminotransferase",
+      "alanine transaminase"
+    ],
+    "band": "normal",
+    "title": "ALT inside the range on your report",
+    "text": "ALT is an enzyme. Much of it sits in liver cells, so it is used as one of the liver tests. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects ALT to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/alt"
+  },
+  {
+    "id": "lft-alt-high",
+    "panel": "liver_tests",
+    "analyte": "alt",
+    "aliases": [
+      "ALT",
+      "alanine aminotransferase",
+      "alanine transaminase"
+    ],
+    "band": "high",
+    "title": "ALT above the range on your report",
+    "text": "ALT is an enzyme. Much of it sits in liver cells, so it is used as one of the liver tests. Your result is above the range printed on your report. A result above the printed range means more ALT was in the blood than that laboratory's usual range. Irritated liver cells can release ALT. Medicines, alcohol, and fat in the liver are among the things a GP may ask about. The result does not name a liver disease. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/alt"
+  },
+  {
+    "id": "lft-ast-low",
+    "panel": "liver_tests",
+    "analyte": "ast",
+    "aliases": [
+      "AST",
+      "aspartate aminotransferase",
+      "aspartate transaminase"
+    ],
+    "band": "low",
+    "title": "AST below the range on your report",
+    "text": "AST is an enzyme found in the liver and also in muscle and other tissues. Your result is below the range printed on your report. A result below the printed range is often of little note on a routine liver panel. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ast"
+  },
+  {
+    "id": "lft-ast-normal",
+    "panel": "liver_tests",
+    "analyte": "ast",
+    "aliases": [
+      "AST",
+      "aspartate aminotransferase",
+      "aspartate transaminase"
+    ],
+    "band": "normal",
+    "title": "AST inside the range on your report",
+    "text": "AST is an enzyme found in the liver and also in muscle and other tissues. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects AST to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ast"
+  },
+  {
+    "id": "lft-ast-high",
+    "panel": "liver_tests",
+    "analyte": "ast",
+    "aliases": [
+      "AST",
+      "aspartate aminotransferase",
+      "aspartate transaminase"
+    ],
+    "band": "high",
+    "title": "AST above the range on your report",
+    "text": "AST is an enzyme found in the liver and also in muscle and other tissues. Your result is above the range printed on your report. A result above the printed range means more AST was in the blood than that laboratory's usual range. Liver irritation and recent muscle injury are both among the reasons. AST is read with ALT, not on its own. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ast"
+  },
+  {
+    "id": "lft-alp-low",
+    "panel": "liver_tests",
+    "analyte": "alp",
+    "aliases": [
+      "ALP",
+      "alkaline phosphatase"
+    ],
+    "band": "low",
+    "title": "ALP below the range on your report",
+    "text": "ALP is an enzyme. In adults it often comes from the liver and from bone. Your result is below the range printed on your report. A result below the printed range is less common than a high result. A GP judges whether a low ALP needs any follow-up. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/alp"
+  },
+  {
+    "id": "lft-alp-normal",
+    "panel": "liver_tests",
+    "analyte": "alp",
+    "aliases": [
+      "ALP",
+      "alkaline phosphatase"
+    ],
+    "band": "normal",
+    "title": "ALP inside the range on your report",
+    "text": "ALP is an enzyme. In adults it often comes from the liver and from bone. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects ALP to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/alp"
+  },
+  {
+    "id": "lft-alp-high",
+    "panel": "liver_tests",
+    "analyte": "alp",
+    "aliases": [
+      "ALP",
+      "alkaline phosphatase"
+    ],
+    "band": "high",
+    "title": "ALP above the range on your report",
+    "text": "ALP is an enzyme. In adults it often comes from the liver and from bone. Your result is above the range printed on your report. A result above the printed range means more ALP was in the blood than that laboratory's usual range. Liver and bone are the two places a GP usually thinks about, using the other liver tests to tell them apart. This passage cannot make that split. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/alp"
+  },
+  {
+    "id": "lft-ggt-low",
+    "panel": "liver_tests",
+    "analyte": "ggt",
+    "aliases": [
+      "GGT",
+      "gamma GT",
+      "gamma-glutamyl transferase",
+      "gamma-glutamyltransferase"
+    ],
+    "band": "low",
+    "title": "GGT below the range on your report",
+    "text": "GGT is an enzyme used alongside the other liver tests. Your result is below the range printed on your report. A result below the printed range is not usually treated as a problem on a routine report. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ggt"
+  },
+  {
+    "id": "lft-ggt-normal",
+    "panel": "liver_tests",
+    "analyte": "ggt",
+    "aliases": [
+      "GGT",
+      "gamma GT",
+      "gamma-glutamyl transferase",
+      "gamma-glutamyltransferase"
+    ],
+    "band": "normal",
+    "title": "GGT inside the range on your report",
+    "text": "GGT is an enzyme used alongside the other liver tests. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects GGT to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ggt"
+  },
+  {
+    "id": "lft-ggt-high",
+    "panel": "liver_tests",
+    "analyte": "ggt",
+    "aliases": [
+      "GGT",
+      "gamma GT",
+      "gamma-glutamyl transferase",
+      "gamma-glutamyltransferase"
+    ],
+    "band": "high",
+    "title": "GGT above the range on your report",
+    "text": "GGT is an enzyme used alongside the other liver tests. Your result is above the range printed on your report. A result above the printed range means more GGT was in the blood than that laboratory's usual range. Alcohol and some medicines are among the reasons GGT can be higher. A high result does not prove the cause. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ggt"
+  },
+  {
+    "id": "lft-bilirubin-low",
+    "panel": "liver_tests",
+    "analyte": "bilirubin",
+    "aliases": [
+      "bilirubin",
+      "total bilirubin",
+      "bili"
+    ],
+    "band": "low",
+    "title": "Bilirubin below the range on your report",
+    "text": "Bilirubin is a yellow pigment made when red blood cells are broken down. The liver processes it. Your result is below the range printed on your report. A result below the printed range is not usually treated as a problem on a routine report. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/bilirubin"
+  },
+  {
+    "id": "lft-bilirubin-normal",
+    "panel": "liver_tests",
+    "analyte": "bilirubin",
+    "aliases": [
+      "bilirubin",
+      "total bilirubin",
+      "bili"
+    ],
+    "band": "normal",
+    "title": "Bilirubin inside the range on your report",
+    "text": "Bilirubin is a yellow pigment made when red blood cells are broken down. The liver processes it. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects bilirubin to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/bilirubin"
+  },
+  {
+    "id": "lft-bilirubin-high",
+    "panel": "liver_tests",
+    "analyte": "bilirubin",
+    "aliases": [
+      "bilirubin",
+      "total bilirubin",
+      "bili"
+    ],
+    "band": "high",
+    "title": "Bilirubin above the range on your report",
+    "text": "Bilirubin is a yellow pigment made when red blood cells are broken down. The liver processes it. Your result is above the range printed on your report. A result above the printed range means more bilirubin was in the blood than that laboratory's usual range. Slower handling by the liver, faster breakdown of red cells, and some inherited patterns can all raise it. A GP tells those apart. This passage does not. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/bilirubin"
+  },
+  {
+    "id": "lft-albumin-low",
+    "panel": "liver_tests",
+    "analyte": "albumin",
+    "aliases": [
+      "albumin"
+    ],
+    "band": "low",
+    "title": "Albumin below the range on your report",
+    "text": "Albumin is a protein made by the liver. It is one of the figures on a liver panel. Your result is below the range printed on your report. A result below the printed range means less albumin than that laboratory's usual range. Inflammation, pregnancy, and liver or kidney conditions are among the reasons. The result is not a diagnosis. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/albumin"
+  },
+  {
+    "id": "lft-albumin-normal",
+    "panel": "liver_tests",
+    "analyte": "albumin",
+    "aliases": [
+      "albumin"
+    ],
+    "band": "normal",
+    "title": "Albumin inside the range on your report",
+    "text": "Albumin is a protein made by the liver. It is one of the figures on a liver panel. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects albumin to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/albumin"
+  },
+  {
+    "id": "lft-albumin-high",
+    "panel": "liver_tests",
+    "analyte": "albumin",
+    "aliases": [
+      "albumin"
+    ],
+    "band": "high",
+    "title": "Albumin above the range on your report",
+    "text": "Albumin is a protein made by the liver. It is one of the figures on a liver panel. Your result is above the range printed on your report. A result above the printed range means more albumin than that laboratory's usual range. A higher result is often linked with a more concentrated sample, for example when someone is short of fluid. It is not a disease label by itself. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/albumin"
+  },
+  {
+    "id": "hba1c-hba1c-low",
+    "panel": "hba1c",
+    "analyte": "hba1c",
+    "aliases": [
+      "HbA1c",
+      "haemoglobin A1c",
+      "hemoglobin A1c",
+      "glycated haemoglobin",
+      "A1c"
+    ],
+    "band": "low",
+    "title": "HbA1c below the range on your report",
+    "text": "HbA1c reflects the average amount of glucose attached to haemoglobin over about the last two to three months. Clinics use it when they look for and follow diabetes. Your result is below the range printed on your report. A result below the range printed on this report is not the same thing as a low glucose on a finger-prick test. Clinicians also use their own cut-offs for diabetes, and this passage does not apply those cut-offs. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/hba1c"
+  },
+  {
+    "id": "hba1c-hba1c-normal",
+    "panel": "hba1c",
+    "analyte": "hba1c",
+    "aliases": [
+      "HbA1c",
+      "haemoglobin A1c",
+      "hemoglobin A1c",
+      "glycated haemoglobin",
+      "A1c"
+    ],
+    "band": "normal",
+    "title": "HbA1c inside the range on your report",
+    "text": "HbA1c reflects the average amount of glucose attached to haemoglobin over about the last two to three months. Clinics use it when they look for and follow diabetes. Your result is inside the range printed on your report. A result inside the range printed on this report is not, by itself, a decision about diabetes. Clinicians use their own cut-offs, and this passage does not apply them. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/hba1c"
+  },
+  {
+    "id": "hba1c-hba1c-high",
+    "panel": "hba1c",
+    "analyte": "hba1c",
+    "aliases": [
+      "HbA1c",
+      "haemoglobin A1c",
+      "hemoglobin A1c",
+      "glycated haemoglobin",
+      "A1c"
+    ],
+    "band": "high",
+    "title": "HbA1c above the range on your report",
+    "text": "HbA1c reflects the average amount of glucose attached to haemoglobin over about the last two to three months. Clinics use it when they look for and follow diabetes. Your result is above the range printed on your report. A result above the range printed on this report means the average glucose attached to haemoglobin was higher than that printed range over recent months. This passage does not diagnose diabetes or prediabetes, and it does not apply a clinician's cut-offs. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/hba1c"
+  },
+  {
+    "id": "lipids-total-cholesterol-low",
+    "panel": "lipids",
+    "analyte": "total_cholesterol",
+    "aliases": [
+      "total cholesterol",
+      "cholesterol",
+      "TC"
+    ],
+    "band": "low",
+    "title": "Total cholesterol below the range on your report",
+    "text": "Total cholesterol adds up the cholesterol carried in the blood. Your result is below the range printed on your report. A result below the printed range is not automatically better or worse. A GP reads total cholesterol with HDL, LDL, and triglycerides. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/total-cholesterol"
+  },
+  {
+    "id": "lipids-total-cholesterol-normal",
+    "panel": "lipids",
+    "analyte": "total_cholesterol",
+    "aliases": [
+      "total cholesterol",
+      "cholesterol",
+      "TC"
+    ],
+    "band": "normal",
+    "title": "Total cholesterol inside the range on your report",
+    "text": "Total cholesterol adds up the cholesterol carried in the blood. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects total cholesterol to be. Targets used in a clinic can differ from the range printed on a report. This passage uses only the printed range. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/total-cholesterol"
+  },
+  {
+    "id": "lipids-total-cholesterol-high",
+    "panel": "lipids",
+    "analyte": "total_cholesterol",
+    "aliases": [
+      "total cholesterol",
+      "cholesterol",
+      "TC"
+    ],
+    "band": "high",
+    "title": "Total cholesterol above the range on your report",
+    "text": "Total cholesterol adds up the cholesterol carried in the blood. Your result is above the range printed on your report. A result above the printed range means the total was higher than that laboratory's usual range. It is one figure used when talking about heart and circulation risk. It does not set a treatment, and it is read with the other lipid results. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/total-cholesterol"
+  },
+  {
+    "id": "lipids-hdl-cholesterol-low",
+    "panel": "lipids",
+    "analyte": "hdl_cholesterol",
+    "aliases": [
+      "HDL",
+      "HDL cholesterol",
+      "high density lipoprotein"
+    ],
+    "band": "low",
+    "title": "HDL cholesterol below the range on your report",
+    "text": "HDL cholesterol is one way cholesterol is carried in the blood. Clinics often look at it as the more favourable fraction. Your result is below the range printed on your report. A result below the printed range means the HDL was lower than the figure on the report. A lower HDL is one of the numbers a GP may mention when talking about heart and circulation risk. It is not a diagnosis. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/hdl-cholesterol"
+  },
+  {
+    "id": "lipids-hdl-cholesterol-normal",
+    "panel": "lipids",
+    "analyte": "hdl_cholesterol",
+    "aliases": [
+      "HDL",
+      "HDL cholesterol",
+      "high density lipoprotein"
+    ],
+    "band": "normal",
+    "title": "HDL cholesterol inside the range on your report",
+    "text": "HDL cholesterol is one way cholesterol is carried in the blood. Clinics often look at it as the more favourable fraction. Your result is inside the range printed on your report. A result inside the printed range matches the figure on this report. Some reports give HDL a single 'more than' number rather than a two-sided range. This passage only describes the figure that was printed. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/hdl-cholesterol"
+  },
+  {
+    "id": "lipids-hdl-cholesterol-high",
+    "panel": "lipids",
+    "analyte": "hdl_cholesterol",
+    "aliases": [
+      "HDL",
+      "HDL cholesterol",
+      "high density lipoprotein"
+    ],
+    "band": "high",
+    "title": "HDL cholesterol above the range on your report",
+    "text": "HDL cholesterol is one way cholesterol is carried in the blood. Clinics often look at it as the more favourable fraction. Your result is above the range printed on your report. A result above the printed range means the HDL was higher than the number on the report. A higher HDL is often read as favourable, so this is not a disease label. It only says the result sits above the printed figure. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/hdl-cholesterol"
+  },
+  {
+    "id": "lipids-ldl-cholesterol-low",
+    "panel": "lipids",
+    "analyte": "ldl_cholesterol",
+    "aliases": [
+      "LDL",
+      "LDL cholesterol",
+      "low density lipoprotein"
+    ],
+    "band": "low",
+    "title": "LDL cholesterol below the range on your report",
+    "text": "LDL cholesterol is another way cholesterol is carried. Clinics often pay attention when this fraction is high. Your result is below the range printed on your report. A result below the printed range means the LDL was lower than the figure on the report. A lower LDL is often the direction treatment aims for. This passage does not say whether a medicine should change. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ldl-cholesterol"
+  },
+  {
+    "id": "lipids-ldl-cholesterol-normal",
+    "panel": "lipids",
+    "analyte": "ldl_cholesterol",
+    "aliases": [
+      "LDL",
+      "LDL cholesterol",
+      "low density lipoprotein"
+    ],
+    "band": "normal",
+    "title": "LDL cholesterol inside the range on your report",
+    "text": "LDL cholesterol is another way cholesterol is carried. Clinics often pay attention when this fraction is high. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects LDL to be. A personal target can be tighter than the range printed on the report. This passage uses only that printed range. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ldl-cholesterol"
+  },
+  {
+    "id": "lipids-ldl-cholesterol-high",
+    "panel": "lipids",
+    "analyte": "ldl_cholesterol",
+    "aliases": [
+      "LDL",
+      "LDL cholesterol",
+      "low density lipoprotein"
+    ],
+    "band": "high",
+    "title": "LDL cholesterol above the range on your report",
+    "text": "LDL cholesterol is another way cholesterol is carried. Clinics often pay attention when this fraction is high. Your result is above the range printed on your report. A result above the printed range means the LDL was higher than that laboratory's usual range. It is one risk figure. Diet, inherited cholesterol patterns, and medicines are things a GP may discuss. This passage does not start or stop a treatment. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ldl-cholesterol"
+  },
+  {
+    "id": "lipids-non-hdl-cholesterol-low",
+    "panel": "lipids",
+    "analyte": "non_hdl_cholesterol",
+    "aliases": [
+      "non-HDL",
+      "non HDL cholesterol",
+      "non-HDL cholesterol"
+    ],
+    "band": "low",
+    "title": "Non-HDL cholesterol below the range on your report",
+    "text": "Non-HDL cholesterol is total cholesterol minus HDL. It is another view of the less favourable cholesterol. Your result is below the range printed on your report. A result below the printed range means non-HDL was lower than the figure on the report. It is read with the other lipid results. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/non-hdl-cholesterol"
+  },
+  {
+    "id": "lipids-non-hdl-cholesterol-normal",
+    "panel": "lipids",
+    "analyte": "non_hdl_cholesterol",
+    "aliases": [
+      "non-HDL",
+      "non HDL cholesterol",
+      "non-HDL cholesterol"
+    ],
+    "band": "normal",
+    "title": "Non-HDL cholesterol inside the range on your report",
+    "text": "Non-HDL cholesterol is total cholesterol minus HDL. It is another view of the less favourable cholesterol. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects non-HDL to be. Clinic targets can differ from the printed range. This passage uses only the printed range. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/non-hdl-cholesterol"
+  },
+  {
+    "id": "lipids-non-hdl-cholesterol-high",
+    "panel": "lipids",
+    "analyte": "non_hdl_cholesterol",
+    "aliases": [
+      "non-HDL",
+      "non HDL cholesterol",
+      "non-HDL cholesterol"
+    ],
+    "band": "high",
+    "title": "Non-HDL cholesterol above the range on your report",
+    "text": "Non-HDL cholesterol is total cholesterol minus HDL. It is another view of the less favourable cholesterol. Your result is above the range printed on your report. A result above the printed range means non-HDL was higher than that laboratory's usual range. A GP reads it with LDL, HDL, and triglycerides. This passage does not set a treatment. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/non-hdl-cholesterol"
+  },
+  {
+    "id": "lipids-triglycerides-low",
+    "panel": "lipids",
+    "analyte": "triglycerides",
+    "aliases": [
+      "triglycerides",
+      "trigs",
+      "TG"
+    ],
+    "band": "low",
+    "title": "Triglycerides below the range on your report",
+    "text": "Triglycerides are a fat in the blood. A recent meal can raise them, which is why some samples are taken after fasting and some are not. Your result is below the range printed on your report. A result below the printed range is not usually the lipid result a clinic acts on. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/triglycerides"
+  },
+  {
+    "id": "lipids-triglycerides-normal",
+    "panel": "lipids",
+    "analyte": "triglycerides",
+    "aliases": [
+      "triglycerides",
+      "trigs",
+      "TG"
+    ],
+    "band": "normal",
+    "title": "Triglycerides inside the range on your report",
+    "text": "Triglycerides are a fat in the blood. A recent meal can raise them, which is why some samples are taken after fasting and some are not. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects triglycerides to be. Whether the sample was taken after fasting changes how the number is read. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/triglycerides"
+  },
+  {
+    "id": "lipids-triglycerides-high",
+    "panel": "lipids",
+    "analyte": "triglycerides",
+    "aliases": [
+      "triglycerides",
+      "trigs",
+      "TG"
+    ],
+    "band": "high",
+    "title": "Triglycerides above the range on your report",
+    "text": "Triglycerides are a fat in the blood. A recent meal can raise them, which is why some samples are taken after fasting and some are not. Your result is above the range printed on your report. A result above the printed range means the triglycerides were higher than that laboratory's usual range. A recent meal, alcohol, and some medicines can raise them. A high result is not a diagnosis by itself. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/triglycerides"
+  },
+  {
+    "id": "thyroid-tsh-low",
+    "panel": "thyroid",
+    "analyte": "tsh",
+    "aliases": [
+      "TSH",
+      "thyroid stimulating hormone",
+      "thyrotropin"
+    ],
+    "band": "low",
+    "title": "TSH below the range on your report",
+    "text": "TSH is a signal from the pituitary gland. It tells the thyroid how much hormone to make. Your result is below the range printed on your report. A result below the printed range means TSH was lower than that laboratory's usual range. A lower TSH can be seen when the thyroid is working harder, and in other situations too. GPs read it next to free T4, not alone. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/tsh"
+  },
+  {
+    "id": "thyroid-tsh-normal",
+    "panel": "thyroid",
+    "analyte": "tsh",
+    "aliases": [
+      "TSH",
+      "thyroid stimulating hormone",
+      "thyrotropin"
+    ],
+    "band": "normal",
+    "title": "TSH inside the range on your report",
+    "text": "TSH is a signal from the pituitary gland. It tells the thyroid how much hormone to make. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects TSH to be. A result inside the range does not rule every thyroid problem in or out. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/tsh"
+  },
+  {
+    "id": "thyroid-tsh-high",
+    "panel": "thyroid",
+    "analyte": "tsh",
+    "aliases": [
+      "TSH",
+      "thyroid stimulating hormone",
+      "thyrotropin"
+    ],
+    "band": "high",
+    "title": "TSH above the range on your report",
+    "text": "TSH is a signal from the pituitary gland. It tells the thyroid how much hormone to make. Your result is above the range printed on your report. A result above the printed range means TSH was higher than that laboratory's usual range. A higher TSH can be seen when the thyroid is being asked to work harder. A GP checks free T4 and symptoms before naming a thyroid disorder. This passage does not diagnose one. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/tsh"
+  },
+  {
+    "id": "thyroid-free-t4-low",
+    "panel": "thyroid",
+    "analyte": "free_t4",
+    "aliases": [
+      "free T4",
+      "FT4",
+      "free thyroxine",
+      "T4"
+    ],
+    "band": "low",
+    "title": "Free T4 below the range on your report",
+    "text": "Free T4 is the thyroxine in the blood that is not bound to protein. It is one of the thyroid hormones. Your result is below the range printed on your report. A result below the printed range means free T4 was lower than that laboratory's usual range. It is read with TSH. A GP decides whether the pattern fits an underactive thyroid. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/free-t4"
+  },
+  {
+    "id": "thyroid-free-t4-normal",
+    "panel": "thyroid",
+    "analyte": "free_t4",
+    "aliases": [
+      "free T4",
+      "FT4",
+      "free thyroxine",
+      "T4"
+    ],
+    "band": "normal",
+    "title": "Free T4 inside the range on your report",
+    "text": "Free T4 is the thyroxine in the blood that is not bound to protein. It is one of the thyroid hormones. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects free T4 to be. It is still read with TSH. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/free-t4"
+  },
+  {
+    "id": "thyroid-free-t4-high",
+    "panel": "thyroid",
+    "analyte": "free_t4",
+    "aliases": [
+      "free T4",
+      "FT4",
+      "free thyroxine",
+      "T4"
+    ],
+    "band": "high",
+    "title": "Free T4 above the range on your report",
+    "text": "Free T4 is the thyroxine in the blood that is not bound to protein. It is one of the thyroid hormones. Your result is above the range printed on your report. A result above the printed range means free T4 was higher than that laboratory's usual range. It is read with TSH. A GP decides whether the pattern fits an overactive thyroid. This passage does not. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/free-t4"
+  },
+  {
+    "id": "thyroid-free-t3-low",
+    "panel": "thyroid",
+    "analyte": "free_t3",
+    "aliases": [
+      "free T3",
+      "FT3",
+      "free triiodothyronine",
+      "T3"
+    ],
+    "band": "low",
+    "title": "Free T3 below the range on your report",
+    "text": "Free T3 is another thyroid hormone. Routine reports do not always include it. Your result is below the range printed on your report. A result below the printed range means free T3 was lower than that laboratory's usual range. It is difficult to interpret without TSH and free T4. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/free-t3"
+  },
+  {
+    "id": "thyroid-free-t3-normal",
+    "panel": "thyroid",
+    "analyte": "free_t3",
+    "aliases": [
+      "free T3",
+      "FT3",
+      "free triiodothyronine",
+      "T3"
+    ],
+    "band": "normal",
+    "title": "Free T3 inside the range on your report",
+    "text": "Free T3 is another thyroid hormone. Routine reports do not always include it. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects free T3 to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/free-t3"
+  },
+  {
+    "id": "thyroid-free-t3-high",
+    "panel": "thyroid",
+    "analyte": "free_t3",
+    "aliases": [
+      "free T3",
+      "FT3",
+      "free triiodothyronine",
+      "T3"
+    ],
+    "band": "high",
+    "title": "Free T3 above the range on your report",
+    "text": "Free T3 is another thyroid hormone. Routine reports do not always include it. Your result is above the range printed on your report. A result above the printed range means free T3 was higher than that laboratory's usual range. A GP reads it with TSH and free T4. This passage does not diagnose an overactive thyroid. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/free-t3"
+  },
+  {
+    "id": "iron-ferritin-low",
+    "panel": "iron_studies",
+    "analyte": "ferritin",
+    "aliases": [
+      "ferritin"
+    ],
+    "band": "low",
+    "title": "Ferritin below the range on your report",
+    "text": "Ferritin is a protein that stores iron. It is the test most often used to look at iron stores. Inflammation can also raise it. Your result is below the range printed on your report. A result below the printed range means the ferritin was lower than that laboratory's usual range. A lower ferritin fits with lower iron stores. It does not say why the stores are low. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ferritin"
+  },
+  {
+    "id": "iron-ferritin-normal",
+    "panel": "iron_studies",
+    "analyte": "ferritin",
+    "aliases": [
+      "ferritin"
+    ],
+    "band": "normal",
+    "title": "Ferritin inside the range on your report",
+    "text": "Ferritin is a protein that stores iron. It is the test most often used to look at iron stores. Inflammation can also raise it. Your result is inside the range printed on your report. A result inside the printed range means stored iron sits in that laboratory's usual range on this test. Inflammation can mask a low store, which is why other iron tests are sometimes looked at as well. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ferritin"
+  },
+  {
+    "id": "iron-ferritin-high",
+    "panel": "iron_studies",
+    "analyte": "ferritin",
+    "aliases": [
+      "ferritin"
+    ],
+    "band": "high",
+    "title": "Ferritin above the range on your report",
+    "text": "Ferritin is a protein that stores iron. It is the test most often used to look at iron stores. Inflammation can also raise it. Your result is above the range printed on your report. A result above the printed range means the ferritin was higher than that laboratory's usual range. That can mean more stored iron, and it can also rise with inflammation, liver conditions, or a recent illness. A high ferritin is not proof of iron overload. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/ferritin"
+  },
+  {
+    "id": "iron-serum-iron-low",
+    "panel": "iron_studies",
+    "analyte": "serum_iron",
+    "aliases": [
+      "serum iron",
+      "iron",
+      "Fe"
+    ],
+    "band": "low",
+    "title": "Serum iron below the range on your report",
+    "text": "Serum iron is the amount of iron in the blood at the moment the sample was taken. It changes through the day and after food. Your result is below the range printed on your report. A result below the printed range means the serum iron was lower than that laboratory's usual range. One low result is hard to read on its own. GPs look at ferritin and transferrin as well. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/serum-iron"
+  },
+  {
+    "id": "iron-serum-iron-normal",
+    "panel": "iron_studies",
+    "analyte": "serum_iron",
+    "aliases": [
+      "serum iron",
+      "iron",
+      "Fe"
+    ],
+    "band": "normal",
+    "title": "Serum iron inside the range on your report",
+    "text": "Serum iron is the amount of iron in the blood at the moment the sample was taken. It changes through the day and after food. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects serum iron to be. Because the level moves during the day, it is still only one moment in time. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/serum-iron"
+  },
+  {
+    "id": "iron-serum-iron-high",
+    "panel": "iron_studies",
+    "analyte": "serum_iron",
+    "aliases": [
+      "serum iron",
+      "iron",
+      "Fe"
+    ],
+    "band": "high",
+    "title": "Serum iron above the range on your report",
+    "text": "Serum iron is the amount of iron in the blood at the moment the sample was taken. It changes through the day and after food. Your result is above the range printed on your report. A result above the printed range means the serum iron was higher than that laboratory's usual range. An iron tablet, a recent meal, or a larger amount of iron in the body can all raise it. One result does not separate those. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/serum-iron"
+  },
+  {
+    "id": "iron-transferrin-low",
+    "panel": "iron_studies",
+    "analyte": "transferrin",
+    "aliases": [
+      "transferrin"
+    ],
+    "band": "low",
+    "title": "Transferrin below the range on your report",
+    "text": "Transferrin is the protein that carries iron in the blood. Your result is below the range printed on your report. A result below the printed range means less transferrin than that laboratory's usual range. Inflammation, and some liver and kidney conditions, can lower it. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/transferrin"
+  },
+  {
+    "id": "iron-transferrin-normal",
+    "panel": "iron_studies",
+    "analyte": "transferrin",
+    "aliases": [
+      "transferrin"
+    ],
+    "band": "normal",
+    "title": "Transferrin inside the range on your report",
+    "text": "Transferrin is the protein that carries iron in the blood. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects transferrin to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/transferrin"
+  },
+  {
+    "id": "iron-transferrin-high",
+    "panel": "iron_studies",
+    "analyte": "transferrin",
+    "aliases": [
+      "transferrin"
+    ],
+    "band": "high",
+    "title": "Transferrin above the range on your report",
+    "text": "Transferrin is the protein that carries iron in the blood. Your result is above the range printed on your report. A result above the printed range means more transferrin than that laboratory's usual range. The body often makes more of this carrier protein when iron stores are low. That pattern is read with ferritin. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/transferrin"
+  },
+  {
+    "id": "iron-transferrin-saturation-low",
+    "panel": "iron_studies",
+    "analyte": "transferrin_saturation",
+    "aliases": [
+      "transferrin saturation",
+      "iron saturation",
+      "TSAT"
+    ],
+    "band": "low",
+    "title": "Transferrin saturation below the range on your report",
+    "text": "Transferrin saturation is the share of transferrin that has iron attached. It is calculated from serum iron and from transferrin or TIBC. Your result is below the range printed on your report. A result below the printed range means a smaller share of the carrier protein was holding iron. That pattern is one of the figures seen when iron stores are low. It is read with ferritin. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/transferrin-saturation"
+  },
+  {
+    "id": "iron-transferrin-saturation-normal",
+    "panel": "iron_studies",
+    "analyte": "transferrin_saturation",
+    "aliases": [
+      "transferrin saturation",
+      "iron saturation",
+      "TSAT"
+    ],
+    "band": "normal",
+    "title": "Transferrin saturation inside the range on your report",
+    "text": "Transferrin saturation is the share of transferrin that has iron attached. It is calculated from serum iron and from transferrin or TIBC. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects transferrin saturation to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/transferrin-saturation"
+  },
+  {
+    "id": "iron-transferrin-saturation-high",
+    "panel": "iron_studies",
+    "analyte": "transferrin_saturation",
+    "aliases": [
+      "transferrin saturation",
+      "iron saturation",
+      "TSAT"
+    ],
+    "band": "high",
+    "title": "Transferrin saturation above the range on your report",
+    "text": "Transferrin saturation is the share of transferrin that has iron attached. It is calculated from serum iron and from transferrin or TIBC. Your result is above the range printed on your report. A result above the printed range means a larger share of the carrier protein was holding iron. A GP reads a high saturation with ferritin before using a term such as iron overload. This passage does not make that call. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/transferrin-saturation"
+  },
+  {
+    "id": "iron-tibc-low",
+    "panel": "iron_studies",
+    "analyte": "tibc",
+    "aliases": [
+      "TIBC",
+      "total iron binding capacity",
+      "iron binding capacity"
+    ],
+    "band": "low",
+    "title": "TIBC below the range on your report",
+    "text": "TIBC measures how much iron the blood could carry. It is closely related to transferrin. Some reports print one of these tests rather than the other. Your result is below the range printed on your report. A result below the printed range means the iron-binding capacity was lower than that laboratory's usual range. It is read with ferritin and serum iron, in a similar way to transferrin. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/tibc"
+  },
+  {
+    "id": "iron-tibc-normal",
+    "panel": "iron_studies",
+    "analyte": "tibc",
+    "aliases": [
+      "TIBC",
+      "total iron binding capacity",
+      "iron binding capacity"
+    ],
+    "band": "normal",
+    "title": "TIBC inside the range on your report",
+    "text": "TIBC measures how much iron the blood could carry. It is closely related to transferrin. Some reports print one of these tests rather than the other. Your result is inside the range printed on your report. A result inside the printed range sits where that laboratory usually expects TIBC to be. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/tibc"
+  },
+  {
+    "id": "iron-tibc-high",
+    "panel": "iron_studies",
+    "analyte": "tibc",
+    "aliases": [
+      "TIBC",
+      "total iron binding capacity",
+      "iron binding capacity"
+    ],
+    "band": "high",
+    "title": "TIBC above the range on your report",
+    "text": "TIBC measures how much iron the blood could carry. It is closely related to transferrin. Some reports print one of these tests rather than the other. Your result is above the range printed on your report. A result above the printed range means the iron-binding capacity was higher than that laboratory's usual range. Capacity often rises when iron stores are low. A GP reads it with ferritin. This passage is general information for a prototype. It is not a diagnosis and it does not say what should happen next. Your GP can read this result with the rest of your report.",
+    "simulatedUrl": "https://example.nhs.uk/explain/tibc"
+  }
+]
