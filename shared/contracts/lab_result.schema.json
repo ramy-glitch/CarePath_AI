@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CarePath anonymised lab result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["results", "reviewRequired"],
+  "properties": {
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["testName", "value", "unit", "referenceRange", "flag"],
+        "properties": {
+          "testName": {"type": "string", "minLength": 1},
+          "value": {"type": "number"},
+          "unit": {"type": "string", "minLength": 1},
+          "referenceRange": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["low", "high"],
+                "properties": {
+                  "low": {"type": "number"},
+                  "high": {"type": "number"}
+                }
+              }
+            ]
+          },
+          "flag": {"enum": ["low", "normal", "high", "unknown"]}
+        }
+      }
+    },
+    "reviewRequired": {"const": true}
+  }
+}
