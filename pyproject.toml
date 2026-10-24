@@ -1,0 +1,28 @@
+[project]
+name = "synoptixhackathon"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.162.0",
+    "langgraph>=1.2.17",
+    "pillow>=13.0.0",
+    "presidio-analyzer>=2.2.364",
+    "presidio-anonymizer>=2.2.364",
+    "presidio-image-redactor>=0.0.58",
+    "pydantic>=2.14.1",
+    "pytesseract>=0.3.13",
+    "python-multipart>=0.0.32",
+    "uvicorn>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
