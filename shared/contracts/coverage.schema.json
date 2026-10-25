@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Model coverage judgement",
+  "description": "JSON the chat model must return. The server discards the explanation when covered is false.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["covered", "explanation"],
+  "properties": {
+    "covered": { "type": "boolean" },
+    "explanation": { "type": "string" }
+  }
+}

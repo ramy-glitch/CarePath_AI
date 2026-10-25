@@ -7,6 +7,9 @@ CORPUS_PATH = PROJECT_ROOT / "corpus" / "passages.json"
 
 OLLAMA_BASE_URL = "http://127.0.0.1:11434"
 EMBEDDING_MODEL = "nomic-embed-text"
+CHAT_MODEL = "qwen3:1.7b"
+CHAT_TIMEOUT_SECONDS = 60
+COVERAGE_SCHEMA_PATH = PROJECT_ROOT / "shared" / "contracts" / "coverage.schema.json"
 
 KEYWORD_TOP_K = 8
 EMBEDDING_TOP_K = 8

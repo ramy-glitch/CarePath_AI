@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CarePath chat turn response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["covered", "explanation", "passages"],
+  "properties": {
+    "covered": { "type": "boolean" },
+    "explanation": { "type": "string", "minLength": 1 },
+    "passages": {
+      "type": "array",
+      "items": { "$ref": "passage.schema.json" }
+    }
+  }
+}

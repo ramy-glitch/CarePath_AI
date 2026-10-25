@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CarePath chat turn request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["lab", "question"],
+  "properties": {
+    "lab": { "$ref": "lab_result.schema.json" },
+    "question": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "history": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "content"],
+        "properties": {
+          "role": { "enum": ["user", "assistant"] },
+          "content": { "type": "string", "minLength": 1, "maxLength": 4000 }
+        }
+      }
+    }
+  }
+}
