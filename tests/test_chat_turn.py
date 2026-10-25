@@ -52,29 +52,32 @@ def _request(**overrides):
     return ChatTurnRequest.model_validate(payload)
 
 
-def test_unknown_flag_is_not_searched_and_skips_the_model(monkeypatch):
-    queries = []
-
-    def fake_search(index, query, **kwargs):
-        queries.append(query)
-        return RetrievalResult(passages=(), best_embedding_score=0.1, accepted=False)
-
-    def fail_if_called(messages):
+def test_unknown_flag_explains_the_test_without_claiming_a_band(monkeypatch):
+    def fail_if_called(*_args, **_kwargs):
         raise AssertionError("model was called")
 
-    monkeypatch.setattr("api.chat_route.search", fake_search)
+    monkeypatch.setattr("api.chat_route.search", fail_if_called)
     monkeypatch.setattr("api.chat_route.complete", fail_if_called)
-    body = _request(lab={
-        "results": [dict(LAB["results"][1])],
-        "reviewRequired": True,
-    })
+    body = _request(
+        question="What is haemoglobin?",
+        lab={
+            "results": [{
+                "testName": "Haemoglobin",
+                "value": 131,
+                "unit": "g/L",
+                "referenceRange": None,
+                "flag": "unknown",
+            }],
+            "reviewRequired": True,
+        },
+    )
 
-    reply = answer_turn(None, body)
+    reply = answer_turn(type("Index", (), {"passages": {"hb": HAEMOGLOBIN}})(), body)
 
-    assert queries == []
-    assert reply["covered"] is False
-    assert reply["explanation"] == fixed_message()
-    assert reply["passages"] == []
+    assert reply["covered"] is True
+    assert "below" not in reply["explanation"].lower()
+    assert "not confirmed" in reply["explanation"]
+    assert "below" not in reply["passages"][0]["text"].lower()
 
 
 def test_rejected_search_skips_the_model(monkeypatch):

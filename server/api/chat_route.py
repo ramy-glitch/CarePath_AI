@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Literal
 
 from fastapi import APIRouter, HTTPException, Request
@@ -9,6 +10,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from gate.decide import decide, uncovered
 from llm.build_prompt import build_messages
+from passages.citation_payload import citation_payload
 from llm.ollama_client import ModelUnavailable, complete
 from retrieval import build_query, search
 from retrieval.corpus_loader import Passage
@@ -94,6 +96,74 @@ class ChatTurnResponse(BaseModel):
     passages: list[CitedPassage]
 
 
+_EXTRA_ANALYTES = {
+    "white blood cells": "white_cell_count",
+    "white cells": "white_cell_count",
+}
+_RANGE_NOT_CONFIRMED = (
+    "The range on this result was not confirmed, so this does not say whether the number is high or low."
+)
+
+
+def _norm(value: str) -> str:
+    return " ".join("".join(ch.lower() if ch.isalnum() else " " for ch in value).split())
+
+
+def _matches(passage: Passage, test_name: str) -> bool:
+    needle = _norm(test_name)
+    if _EXTRA_ANALYTES.get(needle) == passage.analyte:
+        return True
+    names = [passage.analyte.replace("_", " "), *passage.aliases]
+    return any(_norm(name) == needle for name in names)
+
+
+def _definition(text: str) -> str:
+    sentence = text.strip().split(". ", 1)[0].strip().rstrip(".")
+    return f"{sentence}."
+
+
+def _prefer(passages: list[Passage]) -> Passage:
+    for band in ("normal", "low", "high"):
+        for passage in passages:
+            if passage.band == band:
+                return passage
+    return passages[0]
+
+
+def explain_without_a_band(index, lab: LabResult, _question: str) -> dict | None:
+    """A row with no confirmed range can still say what the test is.
+
+    The band-specific sentences in the library are not shown, because they would
+    claim the result is high, low, or normal.
+    """
+    catalog = getattr(index, "passages", None)
+    if not isinstance(catalog, dict):
+        return None
+    explanations: list[str] = []
+    shown: list[Passage] = []
+    seen: set[str] = set()
+    for row in lab.results:
+        if row.flag in _BANDS:
+            continue
+        matched = [passage for passage in catalog.values() if _matches(passage, row.testName)]
+        if not matched:
+            continue
+        chosen = _prefer(matched)
+        if chosen.id in seen:
+            continue
+        seen.add(chosen.id)
+        definition = _definition(chosen.text)
+        explanations.append(definition)
+        shown.append(replace(chosen, title=row.testName, text=definition))
+    if not explanations:
+        return None
+    return {
+        "covered": True,
+        "explanation": f"{' '.join(explanations)} {_RANGE_NOT_CONFIRMED}",
+        "passages": citation_payload(shown),
+    }
+
+
 def accepted_passages(index, lab: LabResult, question: str) -> list[Passage]:
     """Search once per flagged row. A full panel does not fit in one top-3 query."""
     found: list[Passage] = []
@@ -117,7 +187,8 @@ def answer_turn(index, body: ChatTurnRequest) -> dict:
     """Retrieve, then call the model only when at least one passage clears the cutoff."""
     passages = accepted_passages(index, body.lab, body.question)
     if not passages:
-        return uncovered()
+        explained = explain_without_a_band(index, body.lab, body.question)
+        return explained if explained is not None else uncovered()
     messages = build_messages(
         lab=body.lab.model_dump(),
         question=body.question,
