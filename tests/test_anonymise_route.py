@@ -69,3 +69,44 @@ def test_malformed_lab_unit_fails_closed(monkeypatch):
     response = client.post("/api/v1/anonymise", content=b"synthetic", headers={"content-type": "image/png"})
     assert response.status_code == 422
     assert "135" not in response.text
+
+
+import pytest
+
+
+@pytest.mark.parametrize(
+    "corrupted_unit",
+    ["x10“9/L", "x10*9/L"],
+)
+def test_corrupted_ocr_units_fail_closed(monkeypatch, corrupted_unit):
+    """Reject WBC results whose units were corrupted by OCR."""
+
+    def mock_corrupted_redaction(_data):
+        return SimpleNamespace(
+            redacted_text=(
+                "Patient Name: <PERSON> "
+                "Haemoglobin: 13.5 g/dL "
+                f"White Blood Cells: 6.2 {corrupted_unit}"
+            ),
+            redacted_image=Image.new("RGB", (2, 2)),
+        )
+
+    monkeypatch.setattr(
+        anonymise_route,
+        "redact_report",
+        mock_corrupted_redaction,
+    )
+
+    response = client.post(
+        "/api/v1/anonymise",
+        content=b"synthetic",
+        headers={"content-type": "image/png"},
+    )
+
+    assert response.status_code == 422
+    assert response.json() == {
+        "detail": "Image could not be safely anonymised and parsed"
+    }
+    assert "6.2" not in response.text
+    assert "13.5" not in response.text
+    assert "<PERSON>" not in response.text
