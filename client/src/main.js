@@ -253,31 +253,42 @@ function openPreview(lab, hints = null) {
 function renderPreview(lab) {
   const root = $("preview-rows");
   root.replaceChildren();
+  const unsure = lab.results.some((row) => row.needsCheck || !String(row.unit || "").trim());
+  $("check-status").textContent = unsure
+    ? "Some of this was hard to read. Please correct the highlighted rows so they match your report. Nothing is stored until you tick the box."
+    : "";
   lab.results.forEach((row, index) => {
     const block = document.createElement("div");
     block.className = "preview-row";
+    if (row.needsCheck || !String(row.unit || "").trim()) block.classList.add("needs-check");
     block.dataset.index = String(index);
     block.append(
       field("Test", "testName", row.testName, "text"),
       field("Value", "value", String(row.value), "number"),
-      field("Unit", "unit", row.unit, "text"),
+      field("Unit", "unit", row.unit, "text", block.classList.contains("needs-check") ? "From your report" : ""),
       field("Range low", "low", row.referenceRange ? String(row.referenceRange.low) : "", "number"),
       field("Range high", "high", row.referenceRange ? String(row.referenceRange.high) : "", "number"),
     );
     const flag = document.createElement("p");
     flag.className = "flag";
     block.append(flag);
-    const refresh = () => {
+    const refresh = (fromUser) => {
       const edited = readRow(block);
-      flag.textContent = edited.error ? edited.error : `On the report: ${labelFlag(edited.flag)}`;
+      if (fromUser && !edited.error) block.classList.remove("needs-check");
+      flag.textContent = block.classList.contains("needs-check")
+        ? "Please match this to your report."
+        : edited.error
+          ? edited.error
+          : `On the report: ${labelFlag(edited.flag)}`;
+      if (fromUser && !$("preview-rows").querySelector(".needs-check")) $("check-status").textContent = "";
     };
-    block.addEventListener("input", refresh);
-    refresh();
+    block.addEventListener("input", () => refresh(true));
+    refresh(false);
     root.append(block);
   });
 }
 
-function field(label, name, value, type) {
+function field(label, name, value, type, placeholder = "") {
   const wrap = document.createElement("label");
   wrap.textContent = label;
   const input = document.createElement("input");
@@ -285,6 +296,7 @@ function field(label, name, value, type) {
   input.type = type;
   input.value = value;
   input.autocomplete = "off";
+  if (placeholder) input.placeholder = placeholder;
   if (type === "number") input.step = "any";
   wrap.append(input);
   return wrap;

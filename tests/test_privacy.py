@@ -27,6 +27,7 @@ def test_masks_name_preserves_test_value(monkeypatch):
     image_bytes = BytesIO()
     image.save(image_bytes, format="PNG")
     names = ["John", "Smith", "Haemoglobin", "13.5", "g/dL"]
+    monkeypatch.setattr(ocr, "tesseract_command", lambda: "tesseract")
     monkeypatch.setattr(ocr.pytesseract, "image_to_data", lambda *args, **kwargs: {
         "text": names,
         "left": [10, 70, 10, 160, 230],
@@ -42,6 +43,24 @@ def test_masks_name_preserves_test_value(monkeypatch):
     assert output.redacted_image.getpixel((15, 15)) == (0, 0, 0)
     assert output.redacted_image.getpixel((170, 65)) == (255, 255, 255)
     assert output.review_required is True
+
+
+def test_tesseract_uses_the_first_installed_binary(monkeypatch, tmp_path):
+    binary = tmp_path / "tesseract"
+    binary.write_bytes(b"")
+    monkeypatch.setattr(ocr, "TESSERACT_CANDIDATES", (str(binary),))
+    assert ocr.tesseract_command() == str(binary)
+
+
+def test_missing_tesseract_fails_closed(monkeypatch):
+    monkeypatch.setattr(ocr, "TESSERACT_CANDIDATES", ("/missing/tesseract",))
+    monkeypatch.setattr(ocr.shutil, "which", lambda _name: None)
+    try:
+        ocr.tesseract_command()
+    except OSError as exc:
+        assert "Tesseract" in str(exc)
+    else:
+        raise AssertionError("A missing Tesseract install was accepted")
 
 
 def test_invalid_image_fails_closed():

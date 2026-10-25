@@ -204,6 +204,13 @@ button.danger {
 
 .preview-row label { font-size: 0.82rem; font-weight: 650; }
 .preview-row input { width: 100%; }
+.preview-row.needs-check {
+  background: #fff6e8;
+  border-radius: 0.45rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+}
+.preview-row.needs-check .flag { color: var(--gold); }
 
 .flag {
   grid-column: 1 / -1;

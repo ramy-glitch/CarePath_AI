@@ -29,9 +29,10 @@ class LabResult(BaseModel):
     model_config = ConfigDict(extra="forbid")
     testName: str = Field(min_length=1)
     value: float
-    unit: str = Field(min_length=1)
+    unit: str = ""
     referenceRange: ReferenceRange | None
     flag: Literal["low", "normal", "high", "unknown"]
+    needsCheck: bool = False
 
 
 class AnonymisedReport(BaseModel):

@@ -62,10 +62,14 @@ def test_empty_rejected():
     assert response.status_code == 422
 
 
-def test_malformed_lab_unit_fails_closed(monkeypatch):
+def test_uncertain_unit_is_shown_for_correction(monkeypatch):
     def bad(_data):
         return SimpleNamespace(redacted_text="Patient: <PERSON> Haemoglobin: 135 gid", redacted_image=Image.new("RGB", (2, 2)))
     monkeypatch.setattr(anonymise_route, "redact_report", bad)
     response = client.post("/api/v1/anonymise", content=b"synthetic", headers={"content-type": "image/png"})
-    assert response.status_code == 422
-    assert "135" not in response.text
+    assert response.status_code == 200
+    row = response.json()["results"][0]
+    assert row["value"] == 135
+    assert row["needsCheck"] is True
+    assert row["unit"] != "g/dL"
+    assert "<PERSON>" not in response.text
