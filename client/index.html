@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CarePath</title>
+    <link rel="stylesheet" href="/src/styles/app.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <div>
+          <p class="word">CarePath</p>
+          <p class="tag">A plain-language look at a blood-test report. Not a diagnosis, and not medical advice.</p>
+        </div>
+      </div>
+      <ol class="steps" id="steps">
+        <li data-step="1">Upload</li>
+        <li data-step="2">Check</li>
+        <li data-step="3">Range</li>
+        <li data-step="4">Explain</li>
+      </ol>
+    </header>
+
+    <div id="screen-other" class="panel narrow" hidden>
+      <h1 tabindex="-1">This session is open in another tab</h1>
+      <p>CarePath will not open or delete those files from here. Go back to the other tab, or close it and check again.</p>
+      <button type="button" id="check-again">Check again</button>
+    </div>
+
+    <main id="main">
+      <section id="screen-upload" class="panel">
+        <p class="eyebrow">Step 1</p>
+        <h1 tabindex="-1">Upload your report</h1>
+        <p class="lead">Personal details are removed first. The original file is held in memory only long enough to read the test rows, then it is dropped. Nothing about you is saved on the server.</p>
+        <blockquote id="storage-notice"></blockquote>
+        <form id="upload-form">
+          <div id="drop-zone" class="drop-zone">
+            <p class="drop-title">Drop a synthetic report here</p>
+            <p class="fine">Drop a PDF or photo from the test pack, or choose a PNG or JPEG of your own. A test-pack file is recognised by its name. Only the printed results are used. Names and NHS numbers are not read.</p>
+            <label for="report-file">Or choose a file</label>
+            <input id="report-file" name="report" type="file" accept="image/png,image/jpeg,.pdf,application/pdf" />
+            <p id="upload-status" class="status" role="status"></p>
+          </div>
+          <h2>Synthetic test pack</h2>
+          <p class="fine">These are the reports in tests/fixtures/carepath_data. Choose one, or drag it onto the box above.</p>
+          <ul id="fixture-list" class="fixture-list"></ul>
+          <div class="actions">
+            <button type="button" id="example-report">Use a short example</button>
+          </div>
+        </form>
+        <div id="saved-list" hidden>
+          <h2>Reports in this tab</h2>
+          <ul id="saved-reports"></ul>
+        </div>
+      </section>
+
+      <section id="screen-check" class="panel" hidden>
+        <p class="eyebrow">Step 2</p>
+        <h1 tabindex="-1">Check what CarePath read</h1>
+        <p class="lead">Only test names, numbers, units, and ranges are shown. A name, NHS number, address, or date of birth is not in this preview. Correct anything the reader got wrong. Nothing is explained or stored until you tick the box.</p>
+        <form id="check-form">
+          <div id="preview-rows"></div>
+          <fieldset>
+            <legend>Age band</legend>
+            <p class="fine">CarePath does not ask for a date of birth, and it does not guess an age from a name.</p>
+            <label><input type="radio" name="age" value="under-18" /> Under 18</label>
+            <label><input type="radio" name="age" value="18-29" /> 18–29</label>
+            <label><input type="radio" name="age" value="30-39" /> 30–39</label>
+            <label><input type="radio" name="age" value="40-49" /> 40–49</label>
+            <label><input type="radio" name="age" value="50-59" /> 50–59</label>
+            <label><input type="radio" name="age" value="60-plus" /> 60 or older</label>
+            <label><input type="radio" name="age" value="unset" checked /> Prefer not to say</label>
+          </fieldset>
+          <label class="confirm">
+            <input id="confirm-read" type="checkbox" />
+            I have compared these numbers with my report
+          </label>
+          <p id="check-status" class="status" role="status"></p>
+          <div class="actions">
+            <button type="button" id="discard-preview">Start again</button>
+            <button type="submit" id="confirm-continue" disabled>Continue</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="screen-context" class="panel" hidden>
+        <p class="eyebrow">Step 3</p>
+        <h1 tabindex="-1">Anything that changes your range?</h1>
+        <p class="lead">These three questions are optional. CarePath uses an answer only if you choose yes. It does not infer any of them.</p>
+        <form id="context-form">
+          <fieldset>
+            <legend>Are you pregnant?</legend>
+            <label><input type="radio" name="pregnant" value="yes" /> Yes</label>
+            <label><input type="radio" name="pregnant" value="no" /> No</label>
+            <label><input type="radio" name="pregnant" value="unset" checked /> Prefer not to say</label>
+          </fieldset>
+          <fieldset>
+            <legend>Are you taking gender-affirming hormones?</legend>
+            <label><input type="radio" name="hormones" value="yes" /> Yes</label>
+            <label><input type="radio" name="hormones" value="no" /> No</label>
+            <label><input type="radio" name="hormones" value="unset" checked /> Prefer not to say</label>
+          </fieldset>
+          <fieldset>
+            <legend>Has a doctor told you that you have the Duffy-null blood type?</legend>
+            <label><input type="radio" name="duffy" value="yes" /> Yes</label>
+            <label><input type="radio" name="duffy" value="no" /> No</label>
+            <label><input type="radio" name="duffy" value="unset" checked /> Prefer not to say</label>
+          </fieldset>
+          <div class="actions">
+            <button type="submit">Show my results</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="screen-decline" class="panel narrow" hidden>
+        <h1 tabindex="-1">CarePath cannot explain this report</h1>
+        <p id="decline-copy"></p>
+        <p class="fine">Nothing from this preview was saved.</p>
+        <button type="button" id="decline-back">Back to the start</button>
+      </section>
+
+      <section id="screen-results" class="panel" hidden>
+        <p class="eyebrow">Step 4</p>
+        <h1 tabindex="-1">Your results, in plain language</h1>
+        <p class="lead">A fixed rule chooses the range. The explanation under each result comes from CarePath's patient library, not from a guess. This is not a diagnosis.</p>
+        <div id="urgent-banner" class="banner" role="alert" hidden></div>
+        <div id="uncertainties" class="unsure" hidden></div>
+        <div id="cards"></div>
+
+        <section class="chat" aria-labelledby="chat-heading">
+          <h2 id="chat-heading">Ask a question</h2>
+          <p class="fine">The model runs on CarePath's server and may answer only from retrieved passages. If it cannot, you get one fixed message. Sources are shown, then not saved.</p>
+          <ol id="transcript" class="transcript" aria-live="polite"></ol>
+          <form id="chat-form">
+            <label for="question">Your question</label>
+            <textarea id="question" name="question" rows="3" maxlength="2000" placeholder="For example: What are neutrophils?"></textarea>
+            <p id="chat-status" class="status" role="status"></p>
+            <button type="submit" id="send-question">Send</button>
+          </form>
+        </section>
+
+        <section class="after" aria-labelledby="after-heading">
+          <h2 id="after-heading">Ready for your GP</h2>
+          <p>Download a one-page summary with the results, the range that was used, and questions you could ask. It has no personal details, and it is not uploaded.</p>
+          <div class="actions">
+            <button type="button" id="download-summary">Download summary</button>
+            <button type="button" id="upload-another">Upload another report</button>
+          </div>
+        </section>
+
+        <section class="danger-zone" aria-labelledby="delete-heading">
+          <h2 id="delete-heading">Delete</h2>
+          <p id="storage-notice-again" class="fine"></p>
+          <p id="delete-status" class="status" role="status"></p>
+          <div class="actions">
+            <button type="button" id="delete-one" class="danger">Delete this report</button>
+            <button type="button" id="delete-all" class="danger">Delete all</button>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <p>CarePath does not replace your GP. Closing this tab destroys the key that can read saved reports.</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

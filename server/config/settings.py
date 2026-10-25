@@ -4,6 +4,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CORPUS_PATH = PROJECT_ROOT / "corpus" / "passages.json"
+FIXTURE_PACK = PROJECT_ROOT / "tests" / "fixtures" / "carepath_data" / "scenarios.json"
 
 OLLAMA_BASE_URL = "http://127.0.0.1:11434"
 EMBEDDING_MODEL = "nomic-embed-text"
