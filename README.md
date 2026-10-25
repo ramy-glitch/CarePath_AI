@@ -260,7 +260,7 @@ flowchart LR
 
 ## Folder structure
 
-The repository is split along the same boundaries as the architecture. The browser, the two server routes, the corpus, and offline evaluation do not share code. Anonymisation is on this server and stays in its own package. JSON shapes that cross those boundaries live in `shared/contracts/`. Chat, retrieval, and browser files are still empty. In-memory redaction for synthetic images lives in `server/anonymisation/`. The handmade retrieval passages live in `corpus/passages.json`.
+The repository is split along the same boundaries as the architecture. The browser, the two server routes, the corpus, and offline evaluation do not share code. Anonymisation is on this server and stays in its own package. JSON shapes that cross those boundaries live in `shared/contracts/`. Chat and browser files are still empty. Retrieval over `corpus/passages.json` is in `server/retrieval/`. In-memory redaction for synthetic images lives in `server/anonymisation/`.
 
 ```
 client/                  browser only
@@ -338,4 +338,4 @@ tests/                   anonymisation checks only, for now
 
 ## Prototype status
 
-Chat, retrieval, browser storage, and the anonymisation HTTP route are still empty. `corpus/passages.json` holds the handmade passages. `server/anonymisation/` redacts a synthetic image in memory and returns the result without saving it. Anonymisation remains a teammate’s workstream on this server, under the rule that the upload is returned to the browser and not stored.
+Chat, browser storage, and the anonymisation HTTP route are still empty. `server/retrieval/` loads `corpus/passages.json` into an in-memory BM25 index and an Ollama embedding index. `server/anonymisation/` redacts a synthetic image in memory and returns the result without saving it. Anonymisation remains a teammate’s workstream on this server, under the rule that the upload is returned to the browser and not stored.
